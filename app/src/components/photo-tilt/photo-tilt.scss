@@ -1,0 +1,7 @@
+photo-tilt {
+    .mask img {
+        max-width: none;
+        transition: transform 0.2s linear;
+        transform: translate3d(0,0,0);
+    }
+}

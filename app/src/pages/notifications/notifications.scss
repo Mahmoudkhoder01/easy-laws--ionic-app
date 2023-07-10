@@ -1,0 +1,39 @@
+page-notifications {
+    .flex{
+        margin-top: 30px;
+    }
+    .inner{
+        margin: 0 30px;
+    }
+
+    .notification-list-item{
+        background: #ffffff;
+        margin: 10px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        border-radius: 5px;
+        // display: flex;
+        // justify-content: space-between;
+    }
+
+    .notification-list-item.unread{
+        background: #f0f8ff
+    }
+
+    .date{
+        font-size: 11px;
+        color: color($colors, note);
+        margin: 0;
+        font-family: initial;
+        line-height: 1;
+    }
+
+    .icon-notification{
+        font-size: 24px;
+    }
+    .icon-delete{
+        font-size: 18px;
+    }
+    .text{
+        padding-bottom: 15px;
+    }
+}

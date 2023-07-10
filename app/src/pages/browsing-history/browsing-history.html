@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar color="header">
+        <ion-title>{{'BROWSING_HISTORY' | translate}}</ion-title>
+        <ion-buttons end>
+        	<button ion-button (click)="onClear()" icon-only *ngIf="user.has_browsing_history">
+        		<ion-icon name="trash-outline"></ion-icon>
+        	</button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content #content>
+	<div dir="rtl">
+		<ion-list *ngFor="let date of user.browsing_history | keys" class="m-b-sm">
+			<ion-list-header ion-affix [content]="content" class="affix">
+				<!-- <ion-icon name="calendar-outline" class="m-l-sm"></ion-icon> -->
+				{{date.key | moment:'relativeDay':lang}}
+			</ion-list-header>
+			<button ion-item icon-left small *ngFor="let item of date.value" (click)="onGo(item.question_id)">
+				<ion-icon name="book-outline"></ion-icon>
+				{{item.title}}
+			</button>
+		</ion-list>
+	</div>
+</ion-content>

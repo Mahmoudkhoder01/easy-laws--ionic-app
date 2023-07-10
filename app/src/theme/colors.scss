@@ -1,0 +1,81 @@
+ion-content {
+    color: #000;
+    background-color: #EBEDF1 !important;
+}
+.item-inner {border-color: #e0e0e2 !important;}
+
+// ion-searchbar {background: #215D76 !important;}
+.toolbar .searchbar-input {background: rgba(0, 0, 0, .2) !important;}
+
+.bg-default{background: #EBEDF1;}
+.bg-white {background: color($colors, white);}
+.bg-black {background: color($colors, black);}
+.bg-dark {background: color($colors, dark);}
+.bg-app {background: color($colors, app);}
+.bg-alt {background: color($colors, alt);}
+.bg-note {background: color($colors, note);}
+.bg-green {background: color($colors, green);}
+.bg-red {background: color($colors, red);}
+.success {background: color($colors, success);}
+.danger {background: color($colors, danger);}
+.warning {background: color($colors, warning);}
+.grey {background: color($colors, grey);}
+.bg-facebook {background: color($colors, facebook);}
+.bg-google {background: color($colors, google);}
+
+.color-white {color: color($colors, white);}
+.color-black {color: color($colors, black);}
+.color-dark {color: color($colors, dark);}
+.color-app {color: color($colors, app);}
+.color-note {color: color($colors, note);}
+.color-green {color: color($colors, green);}
+.color-alt {color: color($colors, alt);}
+.color-red {color: color($colors, red);}
+.color-success {color: color($colors, success);}
+.color-danger {color: color($colors, danger);}
+.color-warning {color: color($colors, warning);}
+.color-grey {color: color($colors, grey);}
+
+.note {
+    color: color($colors, note);
+    font-size: 1.3rem;
+}
+
+.bold {font-weight: bold !important;}
+.text-left {text-align: left;}
+.text-right {text-align: right;}
+.text-center {text-align: center;}
+.text-xxxlg {font-size: 64px;}
+.text-xxlg {font-size: 48px;}
+.text-xlg {font-size: 32px;}
+.text-lg {font-size: 24px;}
+.text-md {font-size: 18px;}
+.text-sm {font-size: 13px;}
+
+.facebook {
+	color: color($colors, white);
+    background-color: color($colors, facebook);
+    border-color: rgba(0, 0, 0, 0.2)
+}
+
+.google {
+	color: color($colors, white);
+    background-color: color($colors, google);
+    border-color: rgba(0, 0, 0, 0.2)
+}
+
+.inner-link{
+	// text-decoration: underline;
+ //    border-bottom: 1px double color($colors, alt);
+ //    padding-bottom: 1px;
+    border-bottom: 1px solid color($colors, green);
+    padding-bottom: 2px;
+    // box-shadow: 0 2px 0 0 #215d76;
+}
+
+.b-colored{
+    border-color: color($colors, app);
+}
+.b-dark{
+    border-color: #444;
+}

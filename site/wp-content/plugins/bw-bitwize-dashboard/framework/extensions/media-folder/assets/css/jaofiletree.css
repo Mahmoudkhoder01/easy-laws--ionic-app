@@ -1,0 +1,82 @@
+.media-frame-menu .media-menu #jao{
+    width: 100%;
+    padding: 10px 0px 10px 0px;
+    border-left:0;
+    border-right:0;
+}
+
+.upload-php #jao{
+    //width: 250px;
+    width: 18%;
+    margin:10px 0px 10px 10px;
+}
+
+.wp-customizer #jao{
+    width: 220px;
+    margin:10px 0px 10px 10px;
+}
+
+.wp-customizer #jao , .themes-php #jao{
+    width: 220px;
+    margin:10px 0px 10px 10px;
+}
+
+#jao {
+	border: 1px solid rgba(0,0,0,0.1);
+	padding: 10px;
+	background: #fff;
+        float:left;
+        min-height:98px;
+        max-height: 250px;
+        overflow: auto;
+}
+
+ul.jaofiletree {
+	font-family: Verdana, sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	padding: 0px;
+	margin: 0px;
+}
+
+ul.jaofiletree li {
+	list-style: none;
+	padding: 0px;
+	padding-left: 12px;
+	margin: 0px;
+	white-space: nowrap;
+}
+ul.jaofiletree li.drive {
+	padding-left: 15px;
+}
+
+ul.jaofiletree a {
+	color: #333;
+	text-decoration: none;
+	display: inline-block;
+	padding: 0px 2px;
+}
+
+ul.jaofiletree a.title-folder {
+	padding: 0px 5px;
+}
+
+
+ul.jaofiletree a:hover {
+	font-weight: bold;
+}
+
+ul.jaofiletree li.selected > a {
+	//background: #CED;
+        font-weight: bold;
+}
+
+.icon-open-close{width: 9px;height: 16px; float:left;}
+.jaofiletree li.directory.expanded .icon-open-close{ background: url(../images/folder_open.png) left top no-repeat; }
+.jaofiletree li.directory.collapsed .icon-open-close { background: url(../images/directory.png) left top no-repeat; }
+.jaofiletree li.md-perm-media { font-size: 14px }
+.jaofiletree .md-folder,.jaofiletree .md-folder-open { font-size: 15px ;   margin-top: 2px; margin-left: 3px;color: #AEB6BD;font-weight: bold}
+.md-keyboard-return{font-size: 60px !important;margin: 25px auto;color: #AEB6BD}
+.wpmf-attachments-browser .md-folder{font-size: 60px !important;margin: 25px auto;color: #AEB6BD}
+.jaofiletree li.file { background: url(../images/file.png) left top no-repeat; }
+.jaofiletree li.wait { background: url(../images/spinner.gif) left top no-repeat; }

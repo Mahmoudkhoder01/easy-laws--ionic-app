@@ -1,0 +1,96 @@
+page-questions {
+	.app-buttons{
+		// padding: 0 16px;
+	}
+	.app-buttons .button{
+		height: 2.5em;
+	}
+	.app-buttons .button-inner {
+	  	flex-flow: column;
+	}
+	.text-sm {
+		font-size: 13px;
+		display: block;
+	}
+
+	ion-toolbar ion-title{
+		position: relative !important;
+		padding: 0 !important;
+	}
+
+	ion-content .scroll-content{
+		margin-top: 50px !important;
+	}
+	ion-content.has_sub .scroll-content{
+		margin-top: 96px !important;
+	}
+
+	ion-content.ios .scroll-content{
+		margin-top: 70px !important;
+	}
+	ion-content.ios.has_sub .scroll-content{
+		margin-top: 116px !important;
+	}
+
+	.question-list-item{
+	    background: #ffffff;
+	    margin: 10px;
+	    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	    border-radius: 5px;
+	    // display: flex;
+	    // justify-content: space-between;
+	}
+
+	.app-buttons{
+	    background: #f2f2f2;
+	    // border-right: 3px solid #DADBDF;
+	    // margin-right: 5px;
+	    padding: 5px;
+	    border-radius: 0 5px 5px 0;
+	}
+
+	.app-buttons-num {
+	    // width: 50%;
+	    display: inline-block;
+	    text-align: center;
+	    font-size: 18px;
+	    font-weight: bold;
+	    color: color($colors, red);
+	    border-right: 1px solid #DADBDF;
+	    padding: 0 10px;
+	}
+
+	.app-buttons-icon {
+	    // width: 50%;
+	    display: inline-flex;
+	    text-align: center;
+	    align-items: center;
+	    justify-content: center;
+	    padding: 0 10px;
+	}
+
+	.app-buttons-icon ion-icon{
+		font-size: 16px;
+		margin: 0 10px;
+	}
+	.app-buttons-icon span{
+		margin-top: 5px;
+		font-size: 12px;
+	}
+
+	.search-wrap{
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 999;
+		background: rgba(0,0,0,0.3);
+	}
+	.search-inner{
+		width: 80%;
+		margin: 0 auto;
+		background: #ebedf1;
+		border-radius: 5px;
+	}
+}

@@ -1,0 +1,117 @@
+.toolbar-background, .bg-app{
+    background: linear-gradient(to right, color($colors, app) 10%, color($colors, alt) 100%) !important;
+}
+.toolbar .searchbar-input {
+    background: rgba(255,255,255, 0.3) !important;
+}
+
+.overlay-shadow{
+    position: absolute;
+    top: 0; right: 0; bottom: 0; right: 0;
+    width: 100%; height: 100%;
+    background: url(../assets/img/overlay-shadow.png) no-repeat top right;
+}
+
+.tab-button, .tab-button-icon{
+    color: #ed1c24 !important;
+}
+.tab-button{
+    border-right: 0.55px solid rgba(0, 0, 0, 0.3);
+}
+
+.tabbar .tab-button:first-child{
+    border: 0;
+}
+.tab-button-icon{
+    height: 24px !important;
+    margin-bottom: 5px !important;
+}
+.tab-button-text{
+    color: #000 !important;
+    font-size: 12px;
+}
+
+.tab-button[aria-selected=true]{
+    background: #ebedf1 !important;
+}
+
+.searchbar-search-icon{
+    background-image: url(../assets/icons/search_white.svg) !important;
+}
+
+.toolbar .searchbar-input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.toolbar .searchbar-input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.toolbar .searchbar-input::-webkit-input-placeholder {
+  text-indent: 0;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.toolbar ion-icon[name="app-icon-close"]{
+    font-size: 13px;
+}
+
+.cat-toolbar{
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    contain: content;
+    background: #65676b;
+
+    height: 50px;
+    padding: 4px 16px;
+    border: 0;
+    direction: rtl;
+}
+.cat-toolbar.inside{
+  justify-content: center;
+}
+.cat-toolbar .title{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    align-contents: center;
+    font-size: 1.7rem;
+    font-weight: bold;
+    order: 4;
+}
+
+.cat-toolbar .title span{
+  display: inline-block;
+  max-width: 250px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.cat-toolbar .title img{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.cat-toolbar button{
+    background: transparent;
+    font-size: 14px;
+    margin: 0 0.2rem;
+    order: 3;
+}
+.cat-toolbar button[start]{
+    text-align: start;
+}
+.cat-toolbar button[end]{
+    text-align: end;
+    font-size: 10px;
+    order: 5;
+}

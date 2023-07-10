@@ -1,0 +1,123 @@
+<?php
+add_action('vc_before_init', function(){
+
+	vc_map( array(
+		'name' => __('Weather', BW_TD),
+		'base' => 'weather',
+		'description' => 'Display the Weather',
+		'class' => 'simple-weather',
+		'show_settings_on_create' => true,
+		'category' => 'Content',
+		'params' => array(
+			array(
+				'type' => 'dropdown',
+				'param_name' => 'location-type',
+				'value' => array(
+					'Location' => 'location',
+					'Coordinates' => 'coordinates',
+					'Auto' => 'auto',
+				),
+				'heading' => __('Location type', BW_TD),
+				'description' => __('', BW_TD),
+				'admin_label' => true,
+			),
+			array(
+				'type' => 'textfield',
+				'param_name' => 'location',
+				'value' => '',
+				'heading' => __('Location', BW_TD),
+				'description' => __('eq: Beirut, LB', BW_TD),
+				'dependency' => array('element' => 'location-type', 'value' => array('location')),
+				'admin_label' => true,
+			),
+			array(
+				'type' => 'textfield',
+				'param_name' => 'latitude',
+				'value' => '',
+				'heading' => __('Location Latitude', BW_TD),
+				'description' => __('', BW_TD),
+				'dependency' => array('element' => 'location-type', 'value' => array('coordinates')),
+				'admin_label' => true,
+			),
+			array(
+				'type' => 'textfield',
+				'param_name' => 'longitude',
+				'value' => '',
+				'heading' => __('Location Longitude', BW_TD),
+				'description' => __('', BW_TD),
+				'dependency' => array('element' => 'location-type', 'value' => array('coordinates')),
+				'admin_label' => true,
+			),
+			array(
+				'type' => 'dropdown',
+				'param_name' => 'night',
+				'value' => array(
+					'No' => 'no',
+					'Yes' => 'yes',
+				),
+				'heading' => __('Add the forecast for night time?', BW_TD),
+				'description' => __('', BW_TD),
+			),
+			array(
+				'type' => 'dropdown',
+				'param_name' => 'units',
+				'value' => array(
+					'Metric (Celsius)' => 'metric',
+					'Imperial (Fehrenheit)' => 'imperial',
+				),
+				'heading' => __('Units', BW_TD),
+				'description' => __('', BW_TD),
+				'admin_label' => true,
+			),
+			array(
+				'type' => 'dropdown',
+				'param_name' => 'days',
+				'value' => array(
+					'None' => '0',
+					'1' => '1',
+					'2' => '2',
+					'3' => '3',
+					'4' => '4',
+					'5' => '5',
+					'6' => '6',
+					'7' => '7',
+				),
+				'heading' => __('Days of forecast', BW_TD),
+				'description' => __('', BW_TD),
+				'admin_label' => true,
+			),
+			array(
+				'type' => 'dropdown',
+				'param_name' => 'interval',
+				'value' => array(
+					'Every 10 minutes' => '10',
+					'Every 30 minutes' => '30',
+					'Every 1 hour' => '60',
+					'Every 2 hours' => '120',
+					'Each Page Refresh' => '0',
+				),
+				'heading' => __('Weather Check Interval', BW_TD),
+				'description' => __('', BW_TD),
+			),
+			array(
+				'type' => 'dropdown',
+				'param_name' => 'timeout',
+				'value' => array(
+					'30 Seconds' => '30',
+					'60 Seconds' => '60',
+					'10 Seconds' => '10',
+					'5 Seconds' => '5',
+				),
+				'heading' => __('Response Timeout', BW_TD),
+				'description' => __('', BW_TD),
+			),
+			array(
+				'type' => 'textfield',
+				'param_name' => 'api',
+				'value' => '',
+				'heading' => __('API Key: (optional)', BW_TD),
+				'description' => __('For better performance it is recommended that you use an API key. To get access to weather API you need an API key whatever account you chose from Free to Enterprise. <a href="http://openweathermap.org/appid" target="_blank">Generate API Key</a>', BW_TD),
+			),
+		),
+	));
+});

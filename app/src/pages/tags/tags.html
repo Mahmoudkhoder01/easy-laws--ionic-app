@@ -1,0 +1,15 @@
+<ion-header>
+    <ion-navbar color="header">
+        <ion-title>
+            {{'TAGS' | translate}}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content dir="rtl">
+    <ion-list>
+        <button ion-item *ngFor="let item of items" (click)="go_to(item)">
+            {{item.title}}
+            <ion-badge color="alt" item-end>{{item.count}}</ion-badge>
+        </button>
+    </ion-list>
+</ion-content>

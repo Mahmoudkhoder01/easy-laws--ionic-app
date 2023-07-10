@@ -1,0 +1,7 @@
+ios app id: 1365602918
+ios certificate: YDST66BD7Q
+
+
+put files in the /.well-known folder
+
+https://blog.ionicframework.com/deeplinking-in-ionic-apps/

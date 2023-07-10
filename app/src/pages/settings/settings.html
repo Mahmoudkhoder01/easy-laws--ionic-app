@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-navbar color="header">
+        <ion-title>{{'SETTINGS' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <ion-list-header></ion-list-header>
+        <ion-item>
+            <ion-label>{{"LANGUAGE" | translate}}</ion-label>
+            <ion-select  interface="action-sheet" cancelText="{{'CANCEL' | translate}}" [(ngModel)]="options.lang" (ionChange)="save()">
+                <!-- <ion-option value="en">{{'ENGLISH' | translate}}</ion-option>
+                <ion-option value="ar">{{'ARABIC' | translate}}</ion-option>
+                <ion-option value="fr">{{'FRENCH' | translate}}</ion-option> -->
+                <ion-option value="en">English</ion-option>
+                <ion-option value="ar">عربى</ion-option>
+                <ion-option value="fr">Français</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>{{"COUNTRY" | translate}}</ion-label>
+            <ion-select  interface="action-sheet" cancelText="{{'CANCEL' | translate}}" [(ngModel)]="options.country">
+                <ion-option value="LB">{{'LEBANON' | translate}}</ion-option>
+            </ion-select>
+        </ion-item>
+
+    </ion-list>
+
+    <ion-list>
+        <ion-list-header>{{"FONT_SIZE" | translate}}</ion-list-header>
+        <ion-item no-padding>
+            <ion-range [(ngModel)]="options.font_size" color="app" max="3" min="1" pin="true" snaps="true" step="1">
+                <ion-icon [name]="platform.isRTL ? 'add' : 'remove'" range-left></ion-icon>
+                <ion-icon [name]="platform.isRTL ? 'remove' : 'add'" range-right></ion-icon>
+            </ion-range>
+        </ion-item>
+    </ion-list>
+    <div padding class="text-center">
+        <button (click)="save()" ion-button outline color="app" class="bold">{{'SAVE' | translate}}</button>
+    </div>
+</ion-content>

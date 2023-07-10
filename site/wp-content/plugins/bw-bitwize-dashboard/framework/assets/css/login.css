@@ -1,0 +1,143 @@
+/** {
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+	-webkit-font-smoothing: antialiased;
+}*/
+
+:focus {
+	outline: 0!important;
+}
+div#login{
+	width:482px;
+}
+div#login input {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-o-box-shadow: none;
+	-ms-box-shadow: none;
+	box-shadow: none;
+}
+
+body.login {
+	background: #535c69 no-repeat top center;
+	line-height: 1.5;
+	letter-spacing: 1px;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+}
+
+body.login div#login {
+	padding: 60px 0 0;
+}
+
+body.login h1 a {
+	background: url('../images/login/ss-logo.png') center center no-repeat transparent;
+	background-size: 180px 60px;
+	width: 180px;
+	height: 60px;
+	margin: 0 auto 10px;
+	padding: 0;
+}
+
+body.login div#login form {
+	background-color: transparent;
+	border-color: transparent;
+	border-radius: 2px;
+	border-style: solid;
+	border-width: 0;
+	box-shadow: none;
+	margin: 0 auto;
+	padding: 20px;
+	width: 404px;
+	font-weight: 400;
+}
+
+.login label{
+	color: #EEF2F4;
+}
+
+div#login input[type="text"], form#loginform input[type="password"] {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background: transparent;
+	vertical-align: baseline;
+	border: 0;
+	border: 0px;
+	border-bottom: 1px solid #aeb6bd;
+	padding: 10px 12px 4px;
+	color: #fff!important;
+	border-radius: 0;
+}
+
+div#login input[type="text"]:focus, form#loginform input[type="password"]:focus {
+	border-bottom: 1px solid #EEF2F4;
+	opacity: 1;
+}
+
+div#login p.submit input[type="submit"] {
+	background-color:#535C69;
+	border-radius: 1px;
+	text-indent:0;
+	border:0;
+	display:inline-block;
+	color:#ffffff;
+	font-size:13px;
+	font-weight:bold;
+	font-style:normal;
+	height:40px;
+	line-height:40px;
+	text-decoration:none;
+	text-align:center;
+	border-bottom: 1px solid #aeb6bd;
+	text-transform: uppercase;-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+	text-shadow: none;
+}
+div#login p.submit input[type="submit"]:hover {
+	background-color:#535C69;
+	border-bottom: 1px solid #EEF2F4;
+}
+div#login p.submit input[type="submit"]:active {
+	position:relative;
+	top:1px;
+}
+
+p#nav {text-align: center; text-shadow: none!important; padding: 0 !important; margin: 10px 0 0 !important;}
+body.login #nav a{ color:#EEF2F4!important;}
+body.login #login a {text-decoration: none; color: #EEF2F4!important;}
+body.login #login a:hover {color: #EEF2F4!important; text-decoration: underline;}
+
+p#backtoblog {display: none;}
+
+#login_error, .login .message{position: fixed; top: 0; right: 0; left: 0; text-align: center;}
+.login #login_error{background: #414852; color: #fff; border: 0; box-shadow: none;}
+body.login #login_error a{color: #fff !important; font-style: italic;}
+body.login #login_error a:hover{color: #fff !important; text-decoration: underline;}
+
+#login_error, .login .message {
+	position: fixed;
+	background: transparent;
+	border: 0;
+	color: #EEF2F4;
+	top: 0; right: 0;
+	bottom: initial;
+	left: initial;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+html[data-useragent*="AppleWebKit"] div#login input {font-weight: 400;}
+
+@media only screen and (max-width: 480px) {
+	div#login{width:90%;}
+	body.login div#login form{
+		padding: 20px 0 0;
+		width:90%;
+	}
+	div#login p.submit input[type="submit"]{
+		height: auto; line-height: inherit;
+	}
+}

@@ -1,0 +1,337 @@
+[icon-left] ion-icon, [icon-left] ion-label {line-height: 1;}
+ion-list[transparent] ion-item, ion-list[transparent] ion-item .item-inner, ion-item[transparent], ion-item[transparent] .item-inner {
+    background: transparent !important;
+    border: 0 !important;
+}
+ion-list[transparent] ion-list-header {background: transparent !important;}
+.scroll-content {top: -1px;}
+ion-header .toolbar, ion-header .toolbar-background {border: 0 !important;}
+ion-select {position: relative;}
+
+.user-select{
+    user-select: auto !important;
+}
+
+.tab-button {
+    /* border-right: 0.55px solid rgba(0, 0, 0, 0.3); */
+    border: 0 !important;
+}
+.tab-button-text {
+    color: #000 !important;
+    font-size: 12px;
+    display: none !important;
+}
+
+.toolbar[transparent] .toolbar-background{
+    border-color: transparent !important;
+    background: transparent !important;
+}
+
+.loading-wrapper {
+    border-radius: 1px !important;
+    color: #f8f8f8 !important;
+    background: #000 !important;
+}
+.item[small]{
+    font-size: inherit !important;
+    min-height: 3.4rem !important;
+}
+.item[small] ion-label{
+    margin: 8px 8px 8px 0 !important;
+    // line-height: 1.1 !important;
+}
+.item[no-padding], .item[no-padding] .item-inner{
+    padding: 0 !important;
+}
+
+// .item.activated, .item:hover, .item:active{
+//     background-color: #f4fcff !important;
+// }
+
+.toggle.sm{
+    height: 16px !important;
+    width: 40px !important;
+}
+.toggle.sm .toggle-inner{
+    width: 12px !important;
+    height: 12px !important;
+}
+.toggle.sm.toggle-checked .toggle-inner{
+    transform: translate3d(24px, 0, 0) !important;
+}
+
+
+// .toolbar.has_subtitle{min-height: 44px;}
+.toolbar.has_subtitle ion-title {top: -.5rem !important;overflow: visible !important;}
+ion-title .subtitle {display: block;font-size: .9rem;font-weight: normal;}
+
+.select-popover .popover-content {width: 90% !important;left: 5% !important;}
+.select-popover .item-block {min-height: 24px;}
+
+.transparent-header {
+    .toolbar-content, .back-button {color: white;}
+    .toolbar-background, ion-navbar, ion-header {
+        background: transparent !important;
+        background-color: transparent !important;
+    }
+    .header-md::after, .toolbar-background-ios {background-image: none;border-bottom: 0;}
+    .header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios {border: 0;}
+}
+
+ion-footer [empty] .toolbar-background {
+    border-color: transparent;
+    background: transparent;
+}
+ion-footer [empty] {
+    height:11px;
+    min-height: 11px;
+    padding:0;
+}
+
+ion-modal.inset {
+    background-color: rgba(34, 34, 34, .65) !important;
+    transition: opacity .25s ease-in-out;
+    // padding: 20vh 10vw;
+    padding: 5vh 5vw;
+    position: relative;
+}
+
+// ion-modal.inset ion-content, ion-modal.inset .scroll-content{
+//     border-radius: 11px;
+// }
+// ion-modal.inset ion-toolbar, ion-modal.inset ion-navbar{
+//     border-radius: 10px 10px 0 0;
+// }
+
+.searchbar-input::-moz-placeholder,
+.searchbar-input::-ms-input-placeholder,
+.searchbar-input::-webkit-input-placeholder {
+    letter-spacing: 0 !important;
+    opacity: 1 !important;
+    color: #fff !important;
+}
+
+.segment .segment-button{
+    color: color($colors, white) !important;
+    border-color: color($colors, white) !important;
+}
+.segment .segment-button.segment-activated{
+    background-color: color($colors, white) !important;
+    color: color($colors, app) !important;
+}
+html[dir="rtl"] {
+    ion-item-options{
+        left: 0;
+        right: initial;
+        visibility: visible;
+    }
+    .searchbar-search-icon{
+        left: initial !important;
+        right: 9px !important;
+    }
+    .searchbar-clear-icon{
+        left: 0 !important;
+        right: initial !important;
+    }
+    .segment .segment-button:first-of-type{
+        border-radius: 0 4px 4px 0 !important;
+    }
+    .segment .segment-button:last-of-type{
+        border-radius: 4px 0 0 4px !important;
+    }
+    [range-left]{
+        margin: 0 0 0 20px !important;
+    }
+    [range-right] {
+        margin: 0 20px 0 0 !important;
+    }
+}
+
+ion-icon.small {
+    min-height: 1.1em;
+    font-size: 1.1em;
+}
+
+.hide {display: none;}
+.nowrap {white-space: nowrap;}
+
+button[text-left] .button-inner{justify-content: left;}
+html[dir="rtl"] {
+    button[text-left] .button-inner{justify-content: right;}
+}
+
+button[text-right] .button-inner{justify-content: right;}
+html[dir="rtl"] {
+    button[text-right] .button-inner{justify-content: left;}
+}
+
+.list-header{
+    letter-spacing: 0;
+}
+.app-list-header{
+    padding: 8px 16px;
+    position: relative;
+    border-bottom: 0.55px solid #c8c7cc;
+    // font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #333;
+    background: transparent;
+}
+.app-list-header.noborder{
+    border: 0;
+}
+
+.app-list-header span{
+    display: inline-block;
+    background: #fff;
+    margin-bottom: -16px;
+    padding: 8px 16px;
+    border-radius: 5px 5px 0 0;
+    // box-shadow: 0 0 2px 0 rgba(0,0,0,0.2);
+    position: relative;
+    z-index: -1;
+}
+
+.badge-mini{
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.font_size_1{}
+.font_size_2, .font_size_2 .item{font-size: 16px !important;}
+.font_size_3, .font_size_3 .item{font-size: 18px !important;}
+.font_size_4, .font_size_4 .item{font-size: 20px !important;}
+.font_size_5, .font_size_5 .item{font-size: 24px !important;}
+
+.card {
+  // background: #FFF;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  overflow: hidden;
+  vertical-align: top;
+}
+.card.sm {
+    overflow: hidden;
+    width: 25rem;
+    display: inline-block;
+    margin-right: 1.6rem;
+    height: 12rem;
+}
+html[dir="rtl"] {
+    .card.sm {
+        margin-left: 1.6rem;
+        margin-right: 0;
+    }
+}
+.horizontal-scroll .card.sm:last-child{
+    margin: 0;
+}
+.horizontal-scroll.sm{
+    height: 12rem;
+}
+.card .card-header {
+    width: 100%;
+    height: 12rem;
+    // background-size: 100% auto;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color:#fff;
+    text-align: center;
+    position: relative;
+    padding: 16px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.card .card-header:before{
+    content: '';
+    position: absolute;
+    top:0; left:0; bottom: 0; right: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+.card .card-header-text {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; height: 100%;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.card .card-header-text.long-text{
+    white-space: normal;
+    overflow: hidden;
+}
+
+.card .card-header-text.long-text h5{
+    font-size: 90%;
+    line-height: 1.2;
+    margin-top: 1rem;
+}
+
+.card.hp .card-header:before{
+    background: transparent;
+}
+
+.card.hp, .card.hp .card-header {
+    height: 8rem !important;
+    color: #000;
+    box-shadow: none;
+}
+.horizontal-scroll.hp{
+    height: 9rem !important;
+}
+
+// .card .card-header-icon{
+//     position: absolute;
+//     top: 8px;
+//     right: 8px;
+//     z-index: 3;
+// }
+// .card .card-header-icon ion-icon{
+//     font-size: 24px;
+// }
+// html[dir="rtl"] {
+//     .card .card-header-icon {
+//         left: 8px;
+//         right: initial;
+//     }
+// }
+
+.linear-bg{
+    background: linear-gradient(to bottom, color($colors, app) 0%, color($colors, app) 30%, color($colors, alt) 100%) !important;
+}
+
+.label-ios[stacked] {
+    font-size: 1.4rem;
+}
+
+.ltr{
+    direction: ltr;
+}
+
+.rtl {
+    direction: rtl;
+}
+.tab-badge {
+    background-color: #ed2625;
+    background-color: #406497 !important;
+}
+
+// iPhone x Tabs margin
+// @media screen and (device-width: 375px) and (device-height: 812px) {    
+//     .tabbar { padding-bottom: 44px;}
+// }
+
+body {
+    padding-top: constant(safe-area-inset-bottom); /* iOS 11.0 */
+    padding-top: env(safe-area-inset-bottom); /* iOS 11.2 */
+}
+.tabbar {
+    padding-bottom: constant(safe-area-inset-bottom); /* iOS 11.0 */
+    padding-bottom: env(safe-area-inset-bottom); /* iOS 11.2 */
+}

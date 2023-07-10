@@ -1,0 +1,88 @@
+ion-app{
+    font-family: 'JFFlat' !important;
+}
+
+.thegrid ion-icon{
+    margin: 0 5px;
+}
+.thegrid .sect-item{
+    flex-direction: row-reverse;
+}
+html[dir="rtl"]{
+    .thegrid .sect-item{
+        flex-direction: row;
+    }
+}
+
+ion-app.platform-android{
+    font-size: 1.2rem;
+}
+
+[dir="rtl"] {
+    // @font-face {
+    //     font-family: 'Naseem';
+    //     src: url('../assets/fonts/naseem/regular.ttf') format('truetype');
+    // }
+    // @font-face {
+    //     font-family: 'Naseem';
+    //     font-weight: bold;
+    //     src: url('../assets/fonts/naseem/bold.ttf') format('truetype');
+    // }
+    // ion-app{
+    //     font-family: 'Naseem', "Helvetica Neue", sans-serif !important;
+    // }
+    // ion-app{
+    //     font-family: 'JFFlat';
+    // }
+    .arabic_rotate{
+        transform: rotate(180deg);
+    }
+    .list-header{
+        letter-spacing: 0;
+    }
+    .searchbar-ios .searchbar-ios-cancel{
+        padding: 0 8px 0 0;
+    }
+    .back-button-icon.icon-md.back-button-icon-md.ion-md-arrow-back {
+        transform: rotate(180deg);
+    }
+    .back-button-icon.icon-ios.back-button-icon-ios.ion-ios-arrow-back {
+        transform: rotate(180deg);
+        padding: 0 5px;
+    }
+    .item-ios{
+        padding-right: 16px;
+        padding-left: 0;
+        font-size: 1.4rem;
+    }
+    .item-ios[detail-push] .item-inner, button.item-ios:not([detail-none]) .item-inner, a.item-ios:not([detail-none]) .item-inner{
+        padding-left: 32px;
+        padding-right: 0;
+        background-position: left 14px center;
+        background-image: none;
+    }
+    .item-ios[detail-push] .item-inner:before, button.item-ios:not([detail-none]) .item-inner:before, a.item-ios:not([detail-none]) .item-inner:before{
+        background-image: url("data:image/svg+xml;charset=utf-8,<svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2012%2020'><path%20d='M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z'%20fill='%23c8c7cc'/></svg>");
+        content: "";
+        position: absolute;
+        left: 8px;
+        top:50%;
+        margin-top: -8px;
+        transform: rotate(180deg);
+        width: 16px;
+        height: 16px;
+        background-repeat: no-repeat;
+        transform: translate-
+    }
+    .select-ios .select-icon {
+        margin-right: 8px;
+    }
+    [icon-left] ion-icon, [icon-start] ion-icon{
+        padding-left: 0.3em;
+        padding-right: 0;
+    }
+    .ltr-input .text-input{
+        direction: ltr;
+        text-align: right;
+    }
+}

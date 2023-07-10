@@ -1,0 +1,142 @@
+ion-icon {
+    &[class*="app-icon---"] {
+        background-size: contain;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-border: none;
+        background: currentColor;
+        width: 1em;
+        height: 1em;
+        font-family: system-ui;
+        -webkit-font-smoothing: initial;
+        text-rendering: initial;
+        overflow: hidden;
+        border: none;
+    }
+
+    &[class*="app-icon-"] {
+        background-size: contain;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-color: transparent;
+        width: 1em;
+        height: 1em;
+        font-family: system-ui;
+        -webkit-font-smoothing: initial;
+        text-rendering: initial;
+        overflow: hidden;
+        border: none;
+    }
+    // custom icons
+    &[class*="app-icon-arrow-back"] {
+        background-image: url(../assets/icons/arrow-back.svg);
+    }
+    &[class*="app-icon-arrow"] {
+        background-image: url(../assets/icons/arrow.svg);
+    }
+    &[class*="app-icon-arrow-green"] {
+        background-image: url(../assets/icons/arrow-green.svg);
+    }
+    &[class*="app-icon-arrow-red"] {
+        background-image: url(../assets/icons/arrow-red.svg);
+    }
+    &[class*="app-icon-arrow-white"] {
+        background-image: url(../assets/icons/arrow-white.svg);
+    }
+    &[class*="app-icon-close"] {
+        background-image: url(../assets/icons/close-white.svg);
+    }
+    &[class*="app-icon-close-green"] {
+        background-image: url(../assets/icons/close-green.svg);
+    }
+    &[class*="app-icon-close-red"] {
+        background-image: url(../assets/icons/close-red.svg);
+    }
+    &[class*="app-icon-comments"] {
+        background-image: url(../assets/icons/comments.svg);
+    }
+    &[class*="app-icon-like"] {
+        background-image: url(../assets/icons/like.svg);
+    }
+    &[class*="app-icon-like-filled"] {
+        background-image: url(../assets/icons/like-filled.svg);
+    }
+    &[class*="app-icon-dislike"] {
+        background-image: url(../assets/icons/dislike.svg);
+    }
+    &[class*="app-icon-dislike-filled"] {
+        background-image: url(../assets/icons/dislike-filled.svg);
+    }
+    &[class*="app-icon-examples"] {
+        background-image: url(../assets/icons/examples.svg);
+    }
+    &[class*="app-icon-favorite"] {
+        background-image: url(../assets/icons/favorite-white.svg);
+    }
+    &[class*="app-icon-favorite-filled"] {
+        background-image: url(../assets/icons/favorite-filled-white.svg);
+    }
+    &[class*="app-icon-favorite-green"] {
+        background-image: url(../assets/icons/favorite-green.svg);
+    }
+    &[class*="app-icon-favorite-filled-green"] {
+        background-image: url(../assets/icons/favorite-filled-green.svg);
+    }
+    &[class*="app-icon-favorite-red"] {
+        background-image: url(../assets/icons/favorite-red.svg);
+    }
+    &[class*="app-icon-favorite-filled-red"] {
+        background-image: url(../assets/icons/favorite-filled-red.svg);
+    }
+    &[class*="app-icon-home"] {
+        background-image: url(../assets/icons/home.svg);
+    }
+    &[class*="app-icon-links"] {
+        background-image: url(../assets/icons/links.svg);
+    }
+    &[class*="app-icon-more"] {
+        background-image: url(../assets/icons/more.svg);
+    }
+    &[class*="app-icon-note"] {
+        background-image: url(../assets/icons/note.svg);
+    }
+    &[class*="app-icon-pictures"] {
+        background-image: url(../assets/icons/pictures.svg);
+    }
+    &[class*="app-icon-question"] {
+        background-image: url(../assets/icons/question.svg);
+    }
+    &[class*="app-icon-question-green"] {
+        background-image: url(../assets/icons/question-green.svg);
+    }
+    &[class*="app-icon-question-red"] {
+        background-image: url(../assets/icons/question-red.svg);
+    }
+    &[class*="app-icon-question-white"] {
+        background-image: url(../assets/icons/question-white.svg);
+    }
+    &[class*="app-icon-references"] {
+        background-image: url(../assets/icons/references.svg);
+    }
+    &[class*="app-icon-references-white"] {
+        background-image: url(../assets/icons/references-white.svg);
+    }
+    &[class*="app-icon-search"] {
+        background-image: url(../assets/icons/search.svg);
+    }
+    &[class*="app-icon-sendto"] {
+        background-image: url(../assets/icons/sendto.svg);
+    }
+    &[class*="app-icon-subjects"] {
+        background-image: url(../assets/icons/subjects.svg);
+    }
+    &[class*="app-icon-video"] {
+        background-image: url(../assets/icons/video.svg);
+    }
+    &[class*="app-icon-inbox"] {
+        background-image: url(../assets/icons/inbox-2.svg);
+    }
+    &[class*="app-icon-notification"] {
+        background-image: url(../assets/icons/notification.svg);
+    }
+}

@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-navbar color="header">
+        <ion-title>{{'NOTIFICATION_CENTER' | translate}}</ion-title>
+        <ion-buttons end>
+        	<button ion-button icon-only (click)="presentPopover($event)">
+			  	<ion-icon name="more"></ion-icon>
+			</button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content #content>
+
+	<app-loader *ngIf="__loading"></app-loader>
+
+    <div class="flex" *ngIf="!__loading && !items.length"><div class="inner">
+        <p>{{'NOTIFICATION_WELCOME' | translate}}</p>
+
+        <p>{{'NOTIFICATION_CENTER_INCLUDE' | translate}}</p>
+        <p>- {{'NOTIFICATION_CENTER_P1' | translate}}</p>
+        <p>- {{'NOTIFICATION_CENTER_P2' | translate}}</p>
+
+        <p class="italic color-note p-t">
+        	<ion-icon name="ios-alert-outline" color="red"></ion-icon> 
+        	{{'NOTIFICATION_CENTER_NOTE' | translate}}
+        </p>
+    </div></div>
+
+    <div *ngIf="!__loading && items.length">
+	    <div *ngFor="let item of items" class="notification-list-item" [class.unread]="item.is_read != '1'">
+
+	        <div class="p-x-n p-t-sm">
+	            <ion-grid no-padding><ion-row>
+	                <ion-col col-1 class="text-center">
+	                    <ion-icon 
+	                    	color="alt" 
+	                    	[name]="item.is_read == '1' ? 'notifications-outline' : 'notifications'"
+	                    	class="icon-notification"
+	                    ></ion-icon>
+	                </ion-col>
+	                <ion-col tappable (click)="click_action(item)">
+	                    <p class="m-b-xs m-t-n">{{item.title}}</p>
+	                    <p class="date">{{item.date_created * 1000 | moment:'ago'}}</p>
+	                    <div class="text m-t-xs" *ngIf="item.details" [innerHtml]="item.details"></div>
+	                </ion-col>
+	                <ion-col col-1 class="text-center">
+	                    <ion-icon 
+	                    	tappable
+	                    	(click)="delete(item)"
+	                    	color="red" 
+	                    	name="ios-trash-outline" 
+	                    	class="icon-delete"
+	                    ></ion-icon>
+	                </ion-col>
+	            </ion-row></ion-grid>
+	        </div>
+	    </div>
+    </div>
+</ion-content>

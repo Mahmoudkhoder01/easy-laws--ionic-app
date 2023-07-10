@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar color="header">
+        <ion-title>{{'INBOX' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content #content>
+    <div class="message-wrap">
+        <div 
+            *ngFor="let msg of msgList" 
+            class="message" 
+            [class.left]=" msg.userId !== __user.id " 
+            [class.right]=" msg.userId === __user.id "
+        >
+            <img class="user-img" [src]="msg.userAvatar" alt="" src="">
+            <ion-spinner name="dots" *ngIf="msg.status === 'pending'"></ion-spinner>
+            <div class="msg-detail">
+                <div class="msg-info">
+                    <p>{{msg.userName}} {{msg.time | moment:'ago':lang}}</p>
+                </div>
+                <div class="msg-content">
+                    <span class="triangle"></span>
+                    <p class="line-breaker ">{{msg.message}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>
+
+<ion-footer no-border>
+    <div class="input-wrap">
+        <ion-textarea 
+            #chat_input 
+            autosize
+            autofocus
+            placeholder="---" 
+            [(ngModel)]="editorMsg" 
+            (keyup.enter__)="sendMsg()" 
+            (focusin)="onFocus()"
+        ></ion-textarea>
+        <ion-icon tappable name="send" (click)="sendMsg()" *ngIf="editorMsg.length"></ion-icon>
+        
+    </div>
+</ion-footer>

@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-toolbar color="header">
+        <ion-title>{{'WRITE_COMMENT' | translate}}</ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="viewCtrl.dismiss()">
+                <ion-icon name="app-icon-close"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-list inset>
+        <ion-item>
+            <ion-textarea autofocus autosize [(ngModel)]="details" (input)="check()" placeholder="{{'WRITE_COMMENT' | translate}}"></ion-textarea>
+        </ion-item>
+        <button ion-item color="alt" (click)="save()" [disabled]="disabled">{{'SEND' | translate}}</button>
+    </ion-list>
+</ion-content>
+<!-- <ion-footer><ion-toolbar empty></ion-toolbar></ion-footer> -->

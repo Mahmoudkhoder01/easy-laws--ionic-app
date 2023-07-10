@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="header">
+    <ion-title>{{'DEVICE' | translate}}</ion-title>
+    <!-- <ion-buttons start>
+          <button ion-button (click)="dismiss()">
+            <span ion-text>Cancel</span>
+          </button>
+      </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content scroll="false">
+    <ion-list transparent>
+        <ion-item (click)="copy(_device.model)">
+            <ion-note color="grey">{{'DEVICE_MODEL' | translate}}</ion-note>
+            <ion-note item-right color="dark">{{_device.model}}</ion-note>
+        </ion-item>
+        <ion-item (click)="copy(_device.platform)">
+            <ion-note color="grey">{{'DEVICE_PLATFORM' | translate}}</ion-note>
+            <ion-note item-right color="dark">{{_device.platform}}</ion-note>
+        </ion-item>
+        <ion-item (click)="copy(_device.version)">
+            <ion-note color="grey">{{'DEVICE_VERSION' | translate}}</ion-note>
+            <ion-note item-right color="dark">{{_device.version}}</ion-note>
+        </ion-item>
+        <ion-item (click)="copy(_device.manufacturer)">
+            <ion-note color="grey">{{'DEVICE_MANUFACTURER' | translate}}</ion-note>
+            <ion-note item-right color="dark">{{_device.manufacturer}}</ion-note>
+        </ion-item>
+        <ion-item (click)="copy(_device.serial)">
+            <ion-note color="grey">{{'DEVICE_SERIAL' | translate}}</ion-note>
+            <ion-note item-right color="dark">{{_device.serial}}</ion-note>
+        </ion-item>
+        <ion-item (click)="copy(_device.uuid)">
+            <ion-note color="grey">{{'DEVICE_UUID' | translate}}</ion-note>
+            <p ion-text text-right color="dark">{{_device.uuid}}</p>
+        </ion-item>
+    </ion-list>
+</ion-content>

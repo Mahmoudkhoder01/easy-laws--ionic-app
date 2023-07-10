@@ -1,0 +1,22 @@
+<ion-content class="linear-bg">
+    <div class="full rlt">
+        <div class="overlay-shadow"></div>
+        <div class="full-width">
+            <div class="logo"></div>
+
+            <div class="text-center">
+                <button ion-button color="white" outline (click)="modal('SignInPage')">
+                    {{'LOGIN' | translate}}
+                </button>
+                <div class="m-b">
+                    <button ion-button color="white" clear (click)="modal('SignUpPage')">
+                        {{'NO_ACCOUNT' | translate}} <span class="bold m-x-xs">{{'SIGNUP' | translate}}</span>
+                    </button>
+                </div>
+                <div class="text-center text-sm color-white">
+                    {{'EULA_PRE' | translate}} <span tappable (click)="open_url(eula_url)" class="bold underline">{{'EULA' | translate}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

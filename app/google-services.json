@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1077085787624",
+    "firebase_url": "https://easylaws-27af7.firebaseio.com",
+    "project_id": "easylaws-27af7",
+    "storage_bucket": "easylaws-27af7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077085787624:android:3100d275927e7509",
+        "android_client_info": {
+          "package_name": "com.easylaws.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077085787624-7llh23163m38mj9r14sq0lk2hv03q5t7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4PihlI2lm_cE8bneHt-_DN_JP_VYaDKY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

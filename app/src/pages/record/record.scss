@@ -1,0 +1,50 @@
+page-record {
+	.track{
+		position: relative;
+		background: #fff;
+		padding: 5px;
+		border-radius: 7.5px;
+		box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+	}
+	.track ion-icon{
+		font-size: 24px;
+	}
+	.track ion-note{
+		position: absolute;
+		bottom: -13px;
+	}
+	.progress-outer {
+        width: 100%;
+        padding: 1px;
+        text-align: center;
+        background-color: map-get($colors, light);
+        color: #fff;
+    }
+
+    .progress-inner {
+        min-width: 1%;
+        max-width: 100%;
+        height: 5px;
+        white-space: nowrap;
+        overflow: hidden;
+        background-color: map-get($colors, dark);
+    }
+
+    .shader{
+    	padding: 10px;
+    	background: #fff;
+    	border-radius: 5px;
+    	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    	margin: 16px;
+    }
+
+    .shader .item.item-textarea{
+    	padding: 0 !important;
+    }
+    .shader textarea.text-input{
+    	margin: 11px 0 !important;
+    }
+    .shader .item-inner{
+    	padding: 0 !important;
+    }
+}

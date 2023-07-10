@@ -1,0 +1,148 @@
+body {
+
+}
+
+#wpcontent * {
+  -webkit-font-smoothing: antialiased !important;
+}
+
+#wpfooter {
+  display: none;
+}
+
+#wpwrap {
+}
+
+#filter-options {
+  margin: 0;
+}
+
+#filter-options li {
+  margin-right: 0.4em;
+}
+
+#bwd-dashboard .tablenav {
+  margin-top: 1em;
+}
+
+#bwd-dashboard .tablenav .actions {
+  padding: 0;
+  vertical-align: middle;
+}
+
+#ftp-wrap {
+  display:none;
+  padding: 2em;
+  background-color: #ffffe0;
+  border: 2px solid lightgray;
+}
+
+#ftp-wrap .icon32 {
+  display: none;
+}
+
+#actions_progressbar {
+  display: none;
+}
+
+#products_grid {
+    padding: 2% 0;
+    clear: both;
+    text-align: justify;
+    -webkit-backface-visibility: hidden;
+}
+
+#products_grid:after{
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+
+#products_grid .mix, #products_grid .gap{
+  display: inline-block;
+  width: 99%;
+}
+@media all and (min-width: 767px){
+  #products_grid .mix, #products_grid .gap{
+    width: 49%;
+  }
+}
+
+#products_grid .prod-wrap{
+  padding:20px;
+}
+
+#products_grid .mix {
+  display: none;
+  vertical-align: top;
+  text-align: left;
+  background: #FFFFFF;
+  border: 1px solid #e6e6e6;
+  min-height: 180px;
+}
+
+#products_grid .mix:hover {
+  background: #f9f9f9;
+  box-shadow: 0 0 0 3px #eee;
+}
+
+.product-card h2 {
+    font-weight: bold;
+    font-size: 1.6em;
+    line-height: 1.25em;
+}
+.product-card h2 sup{
+  font-weight: normal;
+  font-size: 11px;
+  color: #555;
+}
+.product-card h2 a{font-size: 11px; padding: 2px 5px; display: inline-block;}
+.product-card h2 a:hover{text-decoration: underline;}
+
+.product-card .summary {
+    overflow: hidden;
+}
+
+.product-card .status-action {
+    font-weight: bold;
+    vertical-align: top;
+    text-align: right;
+    position: relative;
+}
+
+.product-card .status-action input[type="checkbox"] {
+    vertical-align: top;
+}
+
+.product-card .status-action span {
+  color:#fff; font-size: 11px; text-transform: uppercase;
+  position: absolute;
+  top:-15px; left:-20px; overflow: hidden;
+  padding: 5px 10px;
+}
+
+.product-card .status-action .us_new {
+  background-color: #2FC7F7;
+}
+.product-card .status-action .us_updated {
+  background-color: #E05B90;
+}
+.product-card .status-action .us_latest, .product-card .status-action .us_server_outdated {
+  background: #535C69;
+}
+.product-card .status-action .as_inactive {
+  color: #fff;
+  background: #f11636;
+}
+
+.prod-img{
+  float:left;
+  position: relative;
+}
+.prod-img span{
+  position: absolute; top:0; right:0; padding: 3px 5px;
+  color: #fff; text-transform: uppercase; font-size: 11px;
+}
+.prod-text{
+  margin-left: 138px;
+}

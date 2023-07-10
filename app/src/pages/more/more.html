@@ -1,0 +1,57 @@
+<ion-header>
+    <ion-navbar color="header">
+        <ion-title>{{'MORE' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <ion-list-header></ion-list-header>
+        <button (click)="modal('SignInPage')" icon-left ion-item *ngIf="!user.is_loggedin">
+            <ion-icon name="contact"></ion-icon> {{'LOGIN_SIGNUP' | translate}}
+        </button>
+        <button ion-item (click)="goto('UserPage')" *ngIf="user.is_loggedin">
+            <ion-avatar item-start>
+                <app-avatar [text]="user.user.name" [image]="user.user.image"></app-avatar>
+            </ion-avatar>
+            <h2>{{user.user.name}}</h2>
+        </button>
+    </ion-list>
+
+    <ion-list>
+        <button (click)="goto('SettingsPage')" icon-left ion-item>
+            <ion-icon name="settings"></ion-icon> {{'SETTINGS' | translate}}
+        </button>
+        <button (click)="goto('RecordPage')" icon-left ion-item>
+            <ion-icon name="mic"></ion-icon> {{'REQUEST_SUBJECT' | translate}}
+        </button>
+        <!-- <button (click)="goto('TagsPage')" icon-left ion-item>
+            <ion-icon name="bookmark"></ion-icon> {{'TAGS' | translate}}
+        </button> -->
+    </ion-list>
+
+    <ion-list>
+        <button (click)="goto('IntroPage')" icon-left ion-item>
+            <ion-icon name="git-pull-request"></ion-icon> {{'SHOW_INTRO' | translate}}
+        </button>
+        <button (click)="goto('FavoritesPage')" icon-left ion-item>
+            <ion-icon name="star"></ion-icon> {{'FAVORITES' | translate}}
+        </button>
+        <button (click)="goto('BrowsingHistoryPage')" icon-left ion-item>
+            <ion-icon name="browsers"></ion-icon> {{'BROWSING_HISTORY' | translate}}
+        </button>
+        <button (click)="rate_app(true)" icon-left ion-item>
+            <ion-icon name="checkmark-circle"></ion-icon> {{'RATE_US' | translate}}
+        </button>
+    </ion-list>
+
+    <!-- <ion-list>
+        <button (click)="goto('AboutPage')" icon-left ion-item>
+            <ion-icon name="apps"></ion-icon> {{'ABOUT_US' | translate}}
+        </button>
+        <button (click)="goto('ContactPage')" icon-left ion-item>
+            <ion-icon name="call"></ion-icon> {{'CONTACT_US' | translate}}
+        </button>
+    </ion-list> -->
+
+
+</ion-content>

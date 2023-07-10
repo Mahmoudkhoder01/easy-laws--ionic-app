@@ -1,0 +1,74 @@
+<ion-header>
+    <ion-navbar color="header">
+        <ion-title>{{'SIGNUP' | translate}}</ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="close_all()">{{'CANCEL' | translate}}</button>
+        </ion-buttons>
+        <!-- <ion-buttons start>
+            <button ion-button (click)="modal('SignInPage')">{{'LOGIN' | translate}}</button>
+        </ion-buttons> -->
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div padding class="text-center">
+        <p class="bold">{{'SIGNUP_USING' | translate}}</p>
+        <button ion-button block icon-left text-left class="facebook m-b-sm" (click)="login_by_facebook()">
+            <ion-icon name="logo-facebook"></ion-icon>
+            {{ 'FACEBOOK' | translate }}
+        </button>
+        <button ion-button block icon-left text-left class="google m-b" (click)="login_by_google()">
+            <ion-icon name="logo-googleplus"></ion-icon>
+            {{ 'GOOGLE' | translate }}
+        </button>
+
+        <ion-list>
+            <ion-item>
+                <ion-label stacked>{{'DISPLAY_NAME' | translate}}</ion-label>
+                <ion-input type="text" [(ngModel)]="item.name" (input)="check()"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>{{'EMAIL' | translate}}</ion-label>
+                <ion-input class="ltr-input" type="email" [(ngModel)]="item.email" (input)="check()"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>{{'PASSWORD' | translate}}</ion-label>
+                <ion-input class="ltr-input" type="password" [(ngModel)]="item.password" (input)="check()"></ion-input>
+            </ion-item>
+            <!-- <ion-item>
+                <ion-label fixed>{{'PHONE' | translate}}</ion-label>
+                <ion-input type="text" [(ngModel)]="item.phone"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed>{{'DOB' | translate}}</ion-label>
+                <ion-datetime
+                    displayFormat="DD MMMM YYYY"
+                    doneText="{{'DONE' | translate}}"
+                    cancelText="{{'CANCEL' | translate}}"
+                    monthNames="{{'MONTH_NAMES' | translate}}"
+                    [(ngModel)]="item.dob">
+                </ion-datetime>
+            </ion-item>
+            <ion-item>
+                <ion-label>{{'GENDER' | translate}}</ion-label>
+                <ion-select  interface="action-sheet" cancelText="{{'CANCEL' | translate}}" [(ngModel)]="item.gender">
+                    <ion-option value="">---</ion-option>
+                    <ion-option value="male">{{'MALE' | translate}}</ion-option>
+                    <ion-option value="female">{{'FEMALE' | translate}}</ion-option>
+                </ion-select>
+            </ion-item> -->
+
+            <button ion-item block color="alt" (click)="signup()" [disabled]="disabled">
+                {{'SIGNUP' | translate}}
+            </button>
+        </ion-list>
+        <!-- <div class="required-text">*: {{'REQUIRED' | translate}}</div> -->
+
+        <div class="text-center text-sm color-grey">
+            {{'EULA_PRE' | translate}} <span tappable (click)="open_url(eula_url)" class="bold underline">{{'EULA' | translate}}</span>
+        </div>
+
+        <button ion-button color="grey" clear (click)="modal('SignUpPage')">
+            {{'HAS_ACCOUNT' | translate}} <span class="bold m-x-xs">{{'LOGIN' | translate}}</span>
+        </button>
+    </div>
+</ion-content>

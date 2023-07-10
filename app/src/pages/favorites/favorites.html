@@ -1,0 +1,73 @@
+<ion-header>
+    <ion-navbar color="header">
+        <ion-title>{{'FAVORITES' | translate}}</ion-title>
+    </ion-navbar>
+    <ion-toolbar color="header">
+        <ion-segment [(ngModel)]="segment" (ionChange)="segment_load()">
+            <ion-segment-button value="subjects">
+                {{'SUBJECTS' | translate}}
+            </ion-segment-button>
+            <ion-segment-button value="questions">
+                {{'QUESTIONS' | translate}}
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <login-view *ngIf="!user.is_loggedin"></login-view>
+
+    <ion-refresher (ionRefresh)="onRefresh($event)">
+    	<ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <app-loader *ngIf="__loading"></app-loader>
+
+    <div dir="rtl" *ngIf="!__loading">
+        <ion-list *ngIf="user.is_loggedin && segment=='questions'">
+        	<ion-list-header></ion-list-header>
+
+            <ion-item-sliding *ngFor="let item of items">
+            	<button ion-item icon-left small (click)="onGo(item)">
+            		<!-- <ion-icon name="app-icon-favorite"></ion-icon> -->
+                    <!-- <ion-icon name="app-icon-question"></ion-icon> -->
+                    <ion-avatar item-start>
+                        <img [src]="qImg">
+                    </ion-avatar>
+            		{{item.title}}
+            	</button>
+                <ion-item-options>
+                    <button (click)="onDelete(item)" ion-button color="red" icon-only>
+                        <ion-icon name="trash"></ion-icon>
+                    </button>
+                </ion-item-options>
+            </ion-item-sliding>
+        </ion-list>
+
+        <ion-list *ngIf="user.is_loggedin && segment=='subjects'">
+            <ion-list-header></ion-list-header>
+
+            <ion-item-sliding *ngFor="let item of items">
+                <button ion-item icon-left small (click)="onSubject(item)">
+                    <ion-avatar item-start *ngIf="item.image">
+                        <img [src]="item.image ? item.image : '../assets/img/icon.png'">
+                    </ion-avatar>
+                    <ion-icon *ngIf="!item.image" name="app-icon-subjects"></ion-icon>
+                    <!-- <ion-icon name="app-icon-favorite"></ion-icon> -->
+                    <!-- <ion-icon name="app-icon-subjects"></ion-icon> -->
+                    {{item.title}}
+                </button>
+                <ion-item-options>
+                    <button (click)="onDelete(item)" ion-button color="red" icon-only>
+                        <ion-icon name="trash"></ion-icon>
+                    </button>
+                </ion-item-options>
+            </ion-item-sliding>
+        </ion-list>
+
+    </div>
+
+    <ion-infinite-scroll (ionInfinite)="onInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+</ion-content>

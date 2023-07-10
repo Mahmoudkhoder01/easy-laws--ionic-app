@@ -1,0 +1,23 @@
+page-modal-zoom {
+	.toolbar-background{
+		background: #000 !important;
+	}
+	ion-content .scroll-content {
+	    margin-top:0px !important;
+	    background: #000;
+	    overflow: scroll !important;
+	}
+	.pinch-zoom-container {
+	    position:relative;
+	    overflow: hidden;
+	    height: 100%;
+	    width:100%;
+	}
+	.pinch-zoom-image {
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    width: 100%;
+	}
+}

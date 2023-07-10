@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar color="header">
+    <ion-title>My Profile</ion-title>
+    <ion-buttons end>
+      <button ion-button strong (click)="on_save()">Save</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="isReady">
+    <ion-list>
+      <ion-list-header>Basic</ion-list-header>
+      <ion-item>
+        <ion-label fixed>Name</ion-label>
+        <ion-input [(ngModel)]="item.name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Gender</ion-label>
+        <ion-select [(ngModel)]="item.gender">
+          <ion-option value="Male">Male</ion-option>
+          <ion-option value="Female">Female</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Phone</ion-label>
+        <ion-input [(ngModel)]="item.phone"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Email</ion-label>
+        <ion-input [(ngModel)]="item.email"></ion-input>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>

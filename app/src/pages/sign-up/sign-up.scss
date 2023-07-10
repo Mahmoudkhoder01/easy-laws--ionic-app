@@ -1,0 +1,10 @@
+page-sign-up {
+	.required-text{
+		color: color($colors, red);
+		margin-top: -16px;
+	    margin-bottom: 16px;
+	    text-align: initial;
+	    font-size: 12px;
+	    font-style: italic;
+	}
+}

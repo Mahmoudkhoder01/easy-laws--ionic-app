@@ -1,0 +1,105 @@
+<ion-header #header *ngIf="sect=='subjects'">
+    <ion-toolbar color="white">
+        <ion-buttons end>
+            <button ion-button color="white" [disabled]="disabled()" (click)="continue()" *ngIf="sect!='eula'">
+                {{'CONTINUE' | translate}}
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="linear-bg">
+
+    <div class="full rlt" *ngIf="sect=='eula'">
+        <div class="overlay-shadow"></div>
+        <div class="full-width">
+            <div class="logo"></div>
+            <div class="text-center text-sm color-white">
+                {{'IAGREE_EXT' | translate}} <span tappable (click)="open_url(eula_url)" class="bold">{{'EULA' | translate}}</span>
+            </div>
+            <div class="text-center p-t">
+                <button ion-button round outline color="white" (click)="agree()" class="bold">
+                    {{'IAGREE' | translate}}
+                </button>
+            </div>
+            <!-- <div class="text-center p-t">
+                <button ion-button clear color="white" (click)="dont_agree()">
+                    {{'IDONTAGREE' | translate}}
+                </button>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="full rlt" *ngIf="sect=='login'">
+        <div class="overlay-shadow"></div>
+        <div class="full-width">
+            <div class="logo"></div>
+            <!-- <div class="align-top">
+                <div class="pull-right">
+                    <button ion-button color="white" small clear (click)="show_subjects()">
+                        {{'SKIP' | translate}}
+                    </button>
+                </div>
+            </div> -->
+
+            <div class="text-center text-sm color-white" style="margin: 32px;">
+                <h3>{{'CHOOSE_LANG' | translate}}</h3>
+                <ion-segment [(ngModel)]="options.lang" (ionChange)="change_lang()">
+                    <ion-segment-button value="en">English</ion-segment-button>
+                    <ion-segment-button value="ar">عربى</ion-segment-button>
+                    <ion-segment-button value="fr">Français</ion-segment-button>
+                </ion-segment>
+            </div>
+
+            <div class="text-center">
+                <button ion-button color="white" outline (click)="modal('SignInPage')">
+                    {{'LOGIN' | translate}}
+                </button>
+                <div class="m-b">
+                    <button ion-button color="white" clear (click)="modal('SignUpPage')">
+                        {{'NO_ACCOUNT' | translate}} <span class="bold m-x-xs">{{'SIGNUP' | translate}}</span>
+                    </button>
+                </div>
+                <div class="text-center text-sm color-white">
+                    {{'EULA_PRE' | translate}} <span tappable (click)="open_url(eula_url)" class="bold underline">{{'EULA' | translate}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="sect=='subjects'" [style.margin-top]="header_height">
+        <div class="bg-app color-white p text-center" *ngIf="user.is_loggedin">
+            <div class="text-center">
+                <app-avatar [text]="item.name" [image]="item.image"></app-avatar>
+                <h5 class="m-n m-t-sm bold">{{item.name}}</h5>
+            </div>
+        </div>
+        <div class="p-t p-x bg-white">
+            <ion-grid no-padding><ion-row align-items-center-->
+                <ion-col>
+                    <p class="m-t-n">{{'CHOOSE_SUBJECTS' | translate}}</p>
+                </ion-col>
+                <ion-col col-3>
+                    <ion-toggle [(ngModel)]="check_all" (ionChange)="set_check_all()" color="app" class="pull-right sm"></ion-toggle>
+                </ion-col>
+            </ion-row></ion-grid>
+        </div>
+
+        <div class="bg-default p">
+            <div class="card sm pull-left" *ngFor="let subject of subjects" tappable (click)="onSubject(subject)">
+                <div class="card-header" [style.background-color]="subject.is_liked ? '#fff' : 'transparent'">
+                    <div class="card-header-icon arabic_rotate">
+                        <ion-icon name="app-icon-arrow" [color]="subject.is_liked ? 'red' : 'dark'"></ion-icon>
+                    </div>
+                    <div class="card-header-text">
+                        <p class="m-n">{{subject.title}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+
+
+    </div>
+</ion-content>

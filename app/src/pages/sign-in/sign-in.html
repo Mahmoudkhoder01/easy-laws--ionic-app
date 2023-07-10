@@ -1,0 +1,60 @@
+<ion-header>
+    <ion-navbar color="header">
+        <ion-title>{{'LOGIN' | translate}}</ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="viewCtrl.dismiss()">{{'CANCEL' | translate}}</button>
+        </ion-buttons>
+        <!-- <ion-buttons start>
+            <button ion-button (click)="modal('SignUpPage')">{{'SIGNUP' | translate}}</button>
+        </ion-buttons> -->
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div padding class="text-center" *ngIf="sect=='forgot'">
+        <p class="bold">{{'FORGOT_PASSWORD' | translate}}</p>
+        <ion-list>
+            <ion-item>
+                <ion-label stacked>{{'EMAIL' | translate}}</ion-label>
+                <ion-input class="ltr-input" type="email" [(ngModel)]="item.forgot_email" (input)="check_forgot()"></ion-input>
+            </ion-item>
+            <button ion-item block color="alt" (click)="do_forgot()" [disabled]="forgot_disabled">
+                {{'SEND' | translate}}
+            </button>
+        </ion-list>
+        <button ion-button color="grey" clear (click)="forgot(false)">
+            {{'BACK' | translate}}
+        </button>
+    </div>
+    <div padding class="text-center" *ngIf="sect=='login'">
+        <p class="bold">{{'LOGIN_USING' | translate}}</p>
+        <button ion-button block icon-left text-left class="facebook m-b-sm" (click)="login_by_facebook()">
+            <ion-icon name="logo-facebook"></ion-icon>
+            {{ 'FACEBOOK' | translate }}
+        </button>
+        <button ion-button block icon-left text-left class="google m-b" (click)="login_by_google()">
+            <ion-icon name="logo-googleplus"></ion-icon>
+            {{ 'GOOGLE' | translate }}
+        </button>
+
+        <ion-list>
+            <ion-item>
+                <ion-label stacked>{{'EMAIL' | translate}}</ion-label>
+                <ion-input class="ltr-input" type="email" [(ngModel)]="item.email" (input)="check()"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label stacked>{{'PASSWORD' | translate}}</ion-label>
+                <ion-input class="ltr-input" type="password" [(ngModel)]="item.password" (input)="check()"></ion-input>
+            </ion-item>
+            <button ion-item block color="alt" (click)="login()" [disabled]="disabled">
+                {{'LOGIN' | translate}}
+            </button>
+        </ion-list>
+        <button ion-button block color="grey" clear (click)="forgot()">
+                {{'FORGOT_PASSWORD' | translate}}
+        </button>
+        <button ion-button block color="grey" clear (click)="signup()">
+            {{'NO_ACCOUNT' | translate}} <span class="bold m-x-xs">{{'SIGNUP' | translate}}</span>
+        </button>
+    </div>
+
+</ion-content>

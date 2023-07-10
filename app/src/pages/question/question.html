@@ -1,0 +1,231 @@
+<ion-header></ion-header>
+<ion-content>
+
+    <app-loader *ngIf="__loading"></app-loader>
+
+<div (swipeleft)="swipeNext()" (swiperight)="swipePrev()" class="full-height">
+
+
+    <div class="bg-app">
+        <button (click)="onShare()" color="white" clear ion-button icon-only class="pull-right">
+            <!-- <ion-icon ios="ios-share-outline" md="md-share"></ion-icon> -->
+            <ion-icon [name]="share_icon"></ion-icon>
+        </button>
+        <button (click)="onBack()" color="white" clear ion-button icon-only *ngIf="hasBack()" class="pull-left">
+            <ion-icon name="arrow-back" class="arabic_rotate"></ion-icon>
+        </button>
+        <div class="clear"></div>
+    </div>
+
+<div dir="rtl">
+    <div class="cat-toolbar inside" *ngIf="item.cat && item.cat.image" [style.background]="item.cat.color">
+        <div class="title">
+            <span>{{item.cat.title}}</span>
+            <img [src]="item.cat.image" *ngIf="item.cat.image">
+        </div>
+    </div>
+
+    <div class="wrapper">
+
+        <div class="actions">
+            <div class="pull-right">
+
+                <div class="like-buttons pull-left" [class.has_next]="show_prev_next && has_next">
+                    <div class="like-buttons-icons">
+                        <span class="vote_icon_wrap vote_up">
+                            <ion-icon class="first" [name]="vote_icon('up', item)" tappable (click)="onVote('up')"></ion-icon>
+                        </span>
+                        <span class="vote_icon_wrap vote_down">
+                            <ion-icon [name]="vote_icon('down', item)" tappable (click)="onVote('down')"></ion-icon>
+                        </span>
+                        <span class="like-buttons-num-text">{{'VOTES' | translate}}</span>
+                    </div>
+                    <div class="like-buttons-text">
+                        <div class="like-buttons-num">{{item.votes}}</div>
+                    </div>
+                </div>
+
+                <div class="icon b-r pull-left" tappable (click)="next()" *ngIf="show_prev_next && has_next">
+                    <ion-icon  name="app-icon-arrow-green" class="rotate"></ion-icon>
+                </div>
+            </div>
+            <div class="pull-left">
+                <div class="icon b-l" tappable (click)="prev()" *ngIf="has_prev">
+                    <ion-icon name="app-icon-arrow-green"></ion-icon>
+                </div>
+                <div class="icon b-l" tappable (click)="onLike()">
+                    <ion-icon [name]="like_icon"></ion-icon>
+                </div>
+                <div class="icon" tappable (click)="onComment()" *ngIf="plt!='ios'">
+                    <ion-icon name="app-icon-comments"></ion-icon>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+
+        <div class="q-title">
+            <div style="padding: 12px 8px; font-size: 20px;">
+                <ion-icon name="app-icon-question-green"></ion-icon>
+            </div>
+            <div class="p-b-sm fw">
+                <p class="m-b-xs user-select">{{item.title}}</p>
+                <ion-note *ngIf="item.cat_ancestors && item.cat_ancestors.length">
+                    <span class="text-sm" *ngFor="let cat of item.cat_ancestors; let isLast=last" (click)="nav_by_cat(cat)">
+                        {{cat.title}} <ion-icon class="m-x-xs" name="arrow-back" *ngIf="!isLast"></ion-icon>
+                    </span>
+                </ion-note>
+
+                <div class="p p-r-n user-select details">
+                    <div #details_target [innerHtml]="item.details | html"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div #thegrid class="thegrid">
+            <div class="horizontal-scroll text-center">
+                <span *ngIf="item.notes && item.notes.length" tappable class="sect-item" [class.active]="sect=='notes'" (click)="do_sect('notes')">
+                    <ion-icon name="app-icon-note"></ion-icon>
+                    <span>{{'NOTES' | translate}}</span>
+                </span>
+                <span tappable class="sect-item" [class.active]="sect=='examples'" (click)="do_sect('examples')">
+                    <ion-icon name="app-icon-examples"></ion-icon>
+                    <span>{{'EXAMPLES' | translate}}</span>
+                </span>
+                <span tappable class="sect-item" [class.active]="sect=='links'" (click)="do_sect('links')">
+                    <ion-icon name="app-icon-links"></ion-icon>
+                    <span>{{'LINKS' | translate}}</span>
+                </span>
+                <span tappable class="sect-item" [class.active]="sect=='references'" (click)="do_sect('references')">
+                    <ion-icon name="app-icon-references"></ion-icon>
+                    <span>{{'REFERENCES' | translate}}</span>
+                </span>
+                <span tappable class="sect-item" [class.active]="sect=='images'" (click)="do_sect('images')">
+                    <ion-icon name="app-icon-pictures"></ion-icon>
+                    <span>{{'IMAGES' | translate}}</span>
+                </span>
+                <span tappable class="sect-item" [class.active]="sect=='videos'" (click)="do_sect('videos')">
+                    <ion-icon name="app-icon-video"></ion-icon>
+                    <span>{{'VIDEOS' | translate}}</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- <div *ngIf="sect == 'notes' && item.notes.length"> -->
+        <div #notes_target [hidden]="sect != 'notes' || !item.notes.length">
+            <!-- <div class="app-list-header">{{'NOTES' | translate}}</div> -->
+            <div class="bg-grid p p-y-xs user-select">
+                <ion-grid>
+                <ion-row align-items-center-- *ngFor="let note of item.notes; let isLast=last; let i=index" class="b-colored" [class.b-b]="!isLast">
+                    <ion-col col-1 *ngIf="item.notes.length>1"><ion-badge class="badge-mini m-t-sm" color="white">{{i+1}}</ion-badge></ion-col>
+                    <ion-col><div [innerHtml]="note | html"></div></ion-col>
+                </ion-row>
+                </ion-grid>
+            </div>
+        </div>
+
+        <div *ngIf="sect == 'examples' && item.examples.length">
+            <!-- <div class="app-list-header">{{'EXAMPLES' | translate}}</div> -->
+            <div class="bg-grid p p-y-xs user-select">
+                <ion-grid>
+                <ion-row align-items-center-- *ngFor="let ex of item.examples; let isLast=last; let i=index" class="b-colored" [class.b-b]="!isLast">
+                    <ion-col col-1 *ngIf="item.examples.length>1"><ion-badge class="badge-mini m-t-sm" color="white">{{i+1}}</ion-badge></ion-col>
+                    <ion-col><div [innerHtml]="ex"></div></ion-col>
+                </ion-row>
+                </ion-grid>
+            </div>
+        </div>
+
+        <div *ngIf="sect == 'links' && item.links.length">
+            <!-- <div class="app-list-header">{{'LINKS' | translate}}</div> -->
+            <ion-list class="m-n bg-grid">
+                <button ion-item small-- *ngFor="let link of item.links" (click)="open_url(link)">
+                    {{root_url(link)}}
+                </button>
+            </ion-list>
+        </div>
+
+        <div *ngIf="sect == 'references' && item.references.length">
+            <!-- <div class="app-list-header">{{'REFERENCES' | translate}}</div> -->
+            <ion-list class="m-n bg-grid">
+                <button ion-item small-- *ngFor="let ref of item.references" (click)="nav_by_reference(ref)">
+                    {{ref.title}}: {{ref.parent}}
+                </button>
+            </ion-list>
+        </div>
+
+        <div *ngIf="sect == 'images' && item.images.length">
+            <ion-grid class="bg-grid"><ion-row>
+                <ion-col col-4 *ngFor="let image of item.images; let i=index">
+                    <!-- <div tappable (click)="view_gallery(all_images, i, item.title)">
+                        <img width="100%" [src]="image.thumb" />
+                        <p class="m-n">{{image.title}}</p>
+                    </div> -->
+
+                    <div tappable (click)="zoom(image.url)">
+                        <img width="100%" [src]="image.thumb" />
+                        <p class="m-n">{{image.title}}</p>
+                    </div>
+                </ion-col>
+            </ion-row></ion-grid>
+        </div>
+
+        <div *ngIf="sect == 'videos' && item.videos.length">
+            <div class="bg-grid p rlt horizontal-scroll">
+                <ion-chip *ngFor="let video of item.videos" color="alt" class="m-l-xs" (click)="view_video(video.url, video.title)">
+                    <ion-label>{{video.title}}</ion-label>
+                </ion-chip>
+            </div>
+        </div>
+
+        <div *ngIf="tags.length">
+            <div class="related p rlt m-t-xs">
+                <h3 class="m-t-n">{{'RELATED_SUBJECTS' | translate}}</h3>
+                <div class="horizontal-scroll">
+                    <ion-chip *ngFor="let tag of tags; let i = index" color="alt" class="m-l-sm" (click)="nav_by_tag(tag)">
+                        <ion-label *ngIf="i<3">
+                            <ion-icon name="app-icon-arrow-red"></ion-icon>
+                            {{tag.title}}
+                        </ion-label>
+                    </ion-chip>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="comments.length">
+            <div class="related p rlt m-t-xs">
+                <h3 class="m-t-n m-b-xs">{{'COMMENTS' | translate}}</h3>
+
+                <ion-grid>
+                    <ion-row *ngFor="let comment of comments; let i=index" [class.b-t-comments]="i>0" [class.m-t-xs]="i>0">
+                        <ion-col col-2>
+                            <ion-avatar>
+                                <app-avatar [text]="comment.user.name" [image] ="comment.user.image"></app-avatar>
+                            </ion-avatar>
+                            <p *ngIf="comment.user.is_admin && comment.user.is_admin==1" class="admin">
+                                {{'ADMIN' | translate}}
+                            </p>
+                        </ion-col>
+                        <ion-col>
+                            <p class="m-t-sm">
+                                <span class="pull-left bold">{{comment.user.name}}</span>
+                                &nbsp;{{comment.details}}
+                            </p>
+                            <div class="m-t-sm">
+                                <ion-icon [name]="vote_icon('up', comment)" tappable (click)="onCommentVote('up', comment)"></ion-icon>
+                                <span class="m-x-xs">{{comment.votes || '0'}}</span>
+                                <ion-icon [name]="vote_icon('down', comment)" tappable (click)="onCommentVote('down', comment)"></ion-icon>
+                                <ion-note class="m-x-xs"> . {{comment.date | moment:'ago'}}</ion-note>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+</div></ion-content>

@@ -1,0 +1,137 @@
+<ion-header>
+    <ion-navbar color="header">
+        <!-- <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button> -->
+        <ion-searchbar
+        [(ngModel)]="searchInput"
+        (ionInput)="onSearchInput($event)"
+        (ionFocus)="onSearchInput($event)"
+        (ionCancel)="onSearchCancel($event)"
+        (ionClear)="onSearchCancel($event)"
+        (search)="onSearch($event)"
+        showCancelButton="true"
+        cancelButtonText="{{'CANCEL' | translate}}"
+        placeholder="{{'SEARCH' | translate}}"></ion-searchbar>
+    </ion-navbar>
+
+    <ion-toolbar color="header" *ngIf="tag">
+        <ion-title class="has_subtitle">{{tag.title}}<span class="subtitle">{{'TAG' | translate}}</span></ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="reset()">
+                <ion-icon name="close"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+
+    <div class="cat-toolbar" *ngIf="cat" [style.background]="cat.color">
+        <div class="title">
+            <span>{{cat.title}}</span>
+            <img [src]="cat.image" *ngIf="cat.image">
+        </div>
+
+        <button end ion-button icon-only (click)="reset()">
+            <ion-icon name="app-icon-close"></ion-icon>
+        </button>
+
+        <button start (click)="onLike()" ion-button icon-only>
+            <ion-icon [name]="like_icon"></ion-icon>
+        </button>
+    </div>
+
+    <!-- <ion-toolbar color="header" *ngIf="cat">
+        <ion-title class="has_subtitle">
+            {{cat.title}}
+            <span class="subtitle">{{'SUBJECT' | translate}}</span>
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="reset()">
+                <ion-icon name="close"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-buttons start>
+            <button (click)="onLike()" ion-button icon-only>
+                <ion-icon [name]="like_icon"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar> -->
+
+</ion-header>
+<ion-content [class.has_sub]="cat || tag" [class.ios]="isIOS">
+    
+
+    <ion-refresher (ionRefresh)="onRefresh($event)"><ion-refresher-content></ion-refresher-content></ion-refresher>
+
+    <app-loader *ngIf="__loading"></app-loader>
+
+    <div class="search-wrap" *ngIf="show_search && user.search_history && user.search_history.length" (click)="show_search = false">
+        <div class="search-inner">
+            <ion-list class="m-t-xs">
+                <!-- <ion-list-header>{{'RECENT_SEARCHES' | translate}}</ion-list-header> -->
+                <ion-list-header class="p-x">
+                    <span class="pull-left">{{'RECENT_SEARCHES' | translate}}</span>
+                    <ion-icon name="close-circle" class="pull-right text-md" tappable (click)="show_search=false"></ion-icon>
+                    <div class="clear"></div>
+                </ion-list-header>
+                <button ion-item icon-left *ngFor="let h of user.search_history" (click)="search(h)">
+                    <ion-icon name="search"></ion-icon>
+                    {{h}}
+                </button>
+            </ion-list>
+        </div>
+    </div>
+
+    <div class="p-t-sm text-center" *ngIf="show_total && !__loading">
+        {{'RECORDS_FOUND' | translate}}: {{total}}
+    </div>
+
+    <ion-list class="m-n p-t-sm" [class.hide]="show_search" *ngIf="subjects.length && !__loading">
+        <button ion-item icon-left *ngFor="let item of subjects" (click)="onSubject(item)">
+            <ion-avatar item-start *ngIf="item.data.image">
+                <img [src]="item.data.image ? item.data.image : '../assets/img/icon.png'">
+            </ion-avatar>
+            <ion-icon *ngIf="!item.data.image" name="app-icon-subjects"></ion-icon>
+
+            <!-- <ion-icon name="app-icon-subjects"></ion-icon> -->
+            {{item.data.title}}
+        </button>
+    </ion-list>
+
+    <div dir="rtl" *ngIf="!__loading">
+    <div *ngFor="let item of items" tappable (click)="open(item)" class="question-list-item">
+
+        <div dir="rtl" class="p-x p-t-sm p-r-n">
+            <ion-grid no-padding><ion-row>
+                <ion-col col-1 class="text-center">
+                    <ion-icon name="app-icon-question-green"></ion-icon>
+                </ion-col>
+                <ion-col>
+                    <p class="m-b-xs m-t-n">{{item.title}}</p>
+                    <p class="color-note" *ngIf="item.excerpt">{{item.excerpt}}</p>
+                </ion-col>
+            </ion-row></ion-grid>
+
+        </div>
+        <div class="app-buttons">
+            <div class="app-buttons-icon">
+                <ion-icon name="app-icon-like"></ion-icon>
+                <span class="text-xs">{{'VOTES' | translate}}</span>
+            </div>
+            <div class="app-buttons-num">
+                {{item.votes}}
+            </div>
+
+            <div class="app-buttons-icon">
+                <ion-icon name="app-icon-comments"></ion-icon>
+                <span class="text-xs">{{'REPLIES' | translate}}</span>
+            </div>
+            <div class="app-buttons-num">
+                {{item.comments}}
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <ion-infinite-scroll (ionInfinite)="onInfinite($event)" threshold="40%">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

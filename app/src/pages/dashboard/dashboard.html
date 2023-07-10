@@ -1,0 +1,165 @@
+<bottom-ads [ads]="ads"></bottom-ads>
+
+<ion-content padding-bottom [class.has-ads]="ads && ads.length" class="rlt" no-bounce has-bouncing="false">
+    
+	<!-- <ion-refresher (ionRefresh)="onRefresh($event)"><ion-refresher-content></ion-refresher-content></ion-refresher> -->
+
+  <div class="bg-app p-b">
+    <div class="toolbar p-t-lg p-x">
+        <ion-searchbar
+            [(ngModel)]="searchInput"
+            (ionInput)="onSearchInput($event)"
+            (ionFocus)="onSearchInput($event)"
+            (search)="onSearch($event)"
+            (ionBlur)="onSearchCancel($event)"
+            (ionCancel)="onSearchCancel($event)"
+            (ionClear)="onSearchCancel($event)"
+            [placeholder]="__loading ? trans.LOADING : trans.SEARCH"
+            [class.loading]="__loading"
+        ></ion-searchbar>
+    </div>
+
+    <div class="search-wrap" *ngIf="show_search && user.search_history && user.search_history.length" (click)="onSearchCancel()">
+        <div class="search-inner">
+            <ion-list class="m-t-xs">
+                <!-- <ion-list-header>{{'RECENT_SEARCHES' | translate}}</ion-list-header> -->
+                <ion-list-header class="p-x">
+                    <span class="pull-left">{{'RECENT_SEARCHES' | translate}}</span>
+                    <ion-icon name="close-circle" class="pull-right text-md" tappable (click)="show_search=false"></ion-icon>
+                    <div class="clear"></div>
+                </ion-list-header>
+                <button ion-item icon-left *ngFor="let h of user.search_history" (click)="search(h)">
+                    <ion-icon name="search"></ion-icon>
+                    {{h}}
+                </button>
+            </ion-list>
+        </div>
+    </div>
+
+    <!-- <ion-list *ngIf="show_search && user.search_history.length">
+        <ion-list-header class="p-x bg-white">
+            <span class="pull-left">{{'RECENT_SEARCHES' | translate}}</span>
+            <ion-icon name="close-circle" class="pull-right text-md" tappable (click)="show_search=false"></ion-icon>
+            <div class="clear"></div>
+        </ion-list-header>
+            <button ion-item icon-left *ngFor="let h of user.search_history" (click)="search(h)">
+                <ion-icon name="search"></ion-icon>
+                {{h}}
+        </button>
+    </ion-list> -->
+
+    <div class="did_you_know" *ngIf="did_you_know.length">
+        <h4>
+          <ion-icon name="app-icon-question"></ion-icon>
+          <span ion-text color="red">{{'DID_YOU_KNOW' | translate}}</span>
+        </h4>
+        <div dir="ltr" class="rlt did_you_know_arrows">
+          <div class="left">
+            <ion-icon name="app-icon-arrow" class="rotate" tappable (click)="slide(true)"></ion-icon>
+          </div>
+          <div class="right">
+            <ion-icon name="app-icon-arrow" tappable (click)="slide(false)"></ion-icon>
+          </div>
+          <div style="margin: 0 16px;">
+            <ion-slides #slides autoplay="10000" loop="true">
+                <ion-slide *ngFor="let item of did_you_know" (click)="onQuestion(item)">
+                    <h5 dir="rtl" class="m-n p-x-sm" ion-text color="dark" [innerHtml]="item.did_you_know"></h5>
+                </ion-slide>
+            </ion-slides>
+          </div>
+        </div>
+    </div>
+
+  </div>
+
+  	<div class="section">
+  		<div class="section-title">
+  			<div class="pull-left">
+  				<span ion-text color="dark">{{'MOST_VISITED_SUBJECTS' | translate}}</span>
+  			</div>
+  			<div class="pull-right">
+  				<span ion-text color="red" (click)="goto('SubjectsPage')">
+            <ion-icon name="app-icon-arrow-red" class="arabic_rotate more_arrow"></ion-icon>
+  					{{'MORE' | translate}}
+  				</span>
+  			</div>
+  			<div class="clear"></div>
+  		</div>
+  		<div class="horizontal-scroll">
+  			<div class="subject" *ngFor="let subject of data.subjects" (click)="onSubject(subject)">
+  				<div class="img" [style.background-color]="subject.bg" [style.background-image]="'url('+subject.image+')'"></div>
+          <h5>{{subject.title}}</h5>
+  			</div>
+
+  		</div>
+  	</div>
+
+    <div class="section" *ngIf="data.used_subjects && data.used_subjects.length">
+      <div class="section-title">
+        <div class="pull-left">
+          <span ion-text color="dark">{{'YOUR_SEARCHES' | translate}}</span>
+        </div>
+        <div class="pull-right">
+          <span ion-text color="red" (click)="goto('UsedSubjectsPage')">
+            <ion-icon name="app-icon-arrow-red" class="arabic_rotate more_arrow"></ion-icon>
+            {{'MORE' | translate}}
+          </span>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="horizontal-scroll">
+        <div class="subject" *ngFor="let subject of data.used_subjects" (click)="onSubject(subject)">
+          <div class="img" [style.background-color]="subject.bg" [style.background-image]="'url('+subject.image+')'"></div>
+          <h5>{{subject.title}}</h5>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section" *ngIf="data.liked_subjects && data.liked_subjects.length">
+      <div class="section-title">
+        <div class="pull-left">
+          <span ion-text color="dark">{{'FAVORITE_SUBJECTS' | translate}}</span>
+        </div>
+        <div class="pull-right">
+          <span ion-text color="red" (click)="goto('FavoritesPage', {segment: 'subjects'})">
+            <ion-icon name="app-icon-arrow-red" class="arabic_rotate more_arrow"></ion-icon>
+            {{'MORE' | translate}}
+          </span>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="horizontal-scroll">
+        <div class="subject" *ngFor="let subject of data.liked_subjects" (click)="onSubject(subject)">
+          <div class="img" [style.background-color]="subject.bg" [style.background-image]="'url('+subject.image+')'"></div>
+          <h5>{{subject.title}}</h5>
+        </div>
+
+      </div>
+    </div>
+
+  	<div class="section b-n" *ngIf="data.liked_questions && data.liked_questions.length">
+  		<div class="section-title">
+  			<div class="pull-left">
+  				<span ion-text color="dark">{{'FAVORITE_QUESTIONS' | translate}}</span>
+  			</div>
+  			<div class="pull-right">
+  				<span ion-text color="red" (click)="goto('FavoritesPage', {segment: 'questions'})">
+            <ion-icon name="app-icon-arrow-red" class="arabic_rotate more_arrow"></ion-icon>
+  					{{'MORE' | translate}}
+  				</span>
+  			</div>
+  			<div class="clear"></div>
+  		</div>
+  		<div class="horizontal-scroll hp sm">
+  			<div class="card hp sm" *ngFor="let q of data.liked_questions" (click)="onQuestion(q)">
+  				<div class="card-header" [style.background-color]="q.bg">
+  					<div class="card-header-text long-text">
+  						<h5 class="bold">{{q.title}}</h5>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+
+</ion-content>

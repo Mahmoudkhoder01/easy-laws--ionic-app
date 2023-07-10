@@ -1,0 +1,156 @@
+To set a default color add the following line to your AndroidManifest.xml.
+        <!-- Example: Sets all OneSignal notification's accent color to Green by default.  -->
+        <!-- Color format is in ARGB. -->
+        <meta-data android:name="com.onesignal.NotificationAccentColor.DEFAULT" android:value="FFED1C24" />
+
+ionic cordova emulate ios -l -c -s
+ionic cordova emulate android -l -c -s
+
+ionic cordova run android --device --prod
+ionic cordova build android --prod --release
+
+npm install @ionic-native/core --save
+
+npm install @ionic/app-scripts@latest --save-dev (in case of build errors for --prod)
+
+npm install moment --save
+
+
+{% DEEP_LINKS %} 
+ionic cordova plugin add ionic-plugin-deeplinks --variable URL_SCHEME=easylaws --variable DEEPLINK_SCHEME=https --variable DEEPLINK_HOST=easylaws.me --variable ANDROID_PATH_PREFIX=/
+
+npm install --save @ionic-native/deeplinks
+{% end_DEEP_LINKS %}
+
+
+https://forum.ionicframework.com/t/could-not-get-unknown-property-android-sdk-version-for-object-of-type-org-gradle-api-internal-artifacts-dsl-dependencies-defaultdependencyhandler/141618/14 
+
+Facebook
+ionic cordova plugin add cordova-plugin-facebook4 --variable APP_ID="1363264657105483" --variable APP_NAME="Easy Laws" --variable FACEBOOK_ANDROID_SDK_VERSION="4.38.1" --variable ANDROID_SDK_VERSION="4.+"
+npm install --save @ionic-native/facebook
+
+# npm install promise-polyfill --save-exact
+# ionic cordova platform update android@6.2.3 --save
+
+ionic cordova plugin add cordova-plugin-statusbar
+npm install --save @ionic-native/status-bar
+
+PDF VIEWER
+npm install ng2-pdf-viewer --save
+
+PUSH NOTIFICATION
+sudo gem install cocoapods
+pod setup
+pod repo update
+
+ionic cordova plugin add phonegap-plugin-push --variable SENDER_ID=1077085787624
+npm install --save @ionic-native/push
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
+
+ionic cordova plugin remove phonegap-plugin-push
+npm remove --save @ionic-native/push
+
+ionic cordova plugin add onesignal-cordova-plugin
+
+GOOGLE ANALYTICS
+ionic cordova plugin add cordova-plugin-google-analytics
+npm install --save @ionic-native/google-analytics
+import { GoogleAnalytics } from '@ionic-native/google-analytics';
+
+CALL NUMBER
+ionic cordova plugin add call-number
+npm install --save @ionic-native/call-number
+import { CallNumber } from '@ionic-native/call-number';
+
+ORIENTATION
+ionic cordova plugin add cordova-plugin-screen-orientation
+npm install --save @ionic-native/screen-orientation
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+
+BADGE
+ionic cordova plugin add cordova-plugin-badge
+npm install --save @ionic-native/badge
+import { Badge } from '@ionic-native/badge';
+
+Native Storage
+ionic cordova plugin add cordova-plugin-nativestorage
+npm install --save @ionic-native/native-storage
+import { NativeStorage } from '@ionic-native/native-storage';
+
+App Version
+ionic cordova plugin add cordova-plugin-app-version
+npm install --save @ionic-native/app-version
+import { AppVersion } from '@ionic-native/app-version';
+
+Clipboard
+ionic cordova plugin remove https://github.com/bitwizer/CordovaClipboard.git
+npm install --save @ionic-native/clipboard
+import { Clipboard } from '@ionic-native/clipboard';
+
+Camera
+ionic cordova plugin add cordova-plugin-camera
+npm install --save @ionic-native/camera
+import { Camera, CameraOptions } from '@ionic-native/camera';
+
+Device
+ionic cordova plugin add cordova-plugin-device
+npm install --save @ionic-native/device
+import { Device } from '@ionic-native/device';
+
+Dialogs
+ionic cordova plugin add cordova-plugin-dialogs
+npm install --save @ionic-native/dialogs
+import { Dialogs } from '@ionic-native/dialogs';
+
+Geolocation
+$ ionic cordova plugin add cordova-plugin-geolocation
+$ npm install --save @ionic-native/geolocation
+import { Geolocation } from '@ionic-native/geolocation';
+
+Native Storage
+ionic cordova plugin add cordova-plugin-nativestorage
+npm install --save @ionic-native/native-storage
+import { NativeStorage } from '@ionic-native/native-storage';
+
+Network
+ionic cordova plugin add cordova-plugin-network-information
+npm install --save @ionic-native/network
+import { Network } from '@ionic-native/network';
+
+InAppBrowser
+ionic cordova plugin add cordova-plugin-inappbrowser
+npm install --save @ionic-native/in-app-browser
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+
+Social Sharing
+ionic cordova plugin add cordova-plugin-x-socialsharing
+npm install --save @ionic-native/social-sharing
+import { SocialSharing } from '@ionic-native/social-sharing';
+
+CLIPBOARD
+ionic cordova plugin add cordova-clipboard
+npm install --save @ionic-native/clipboard
+import { Clipboard } from '@ionic-native/clipboard';
+
+TRANSLATE
+npm install @ngx-translate/core --save
+npm install @ngx-translate/http-loader@0.1.0 --save --save-exact
+
+MEDIA
+ionic cordova plugin add cordova-plugin-media
+npm install --save @ionic-native/media
+import { Media, MediaObject } from '@ionic-native/media';
+
+File
+ionic cordova plugin add cordova-plugin-file
+npm install --save @ionic-native/file
+import { File } from '@ionic-native/file';
+
+Facebook
+ionic cordova plugin add cordova-plugin-facebook4 --variable APP_ID="1363264657105483" --variable APP_NAME="Easy Laws"
+npm install --save @ionic-native/facebook
+
+Google Plus
+ionic cordova plugin add cordova-plugin-googleplus --variable REVERSED_CLIENT_ID="com.googleusercontent.apps.1016456663546-c2m2d1talmvg90rp0dvk1bvd256l5leg"
+npm install --save @ionic-native/google-plus
+import { GooglePlus } from '@ionic-native/google-plus';

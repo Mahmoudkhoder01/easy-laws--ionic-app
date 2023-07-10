@@ -1,0 +1,202 @@
+page-question {
+	.votes{
+		text-align: center;
+	}
+	.votes ion-icon{
+		font-size: 24px;
+	}
+
+	.comment-votes{
+		text-align: center;
+	}
+	.comment-votes ion-icon{
+		font-size: 18px;
+	}
+
+	.q-title ion-note{
+		color: color($colors, green);
+		// opacity: 0.6;
+	}
+
+	.list > .item-block:first-child{
+		border-top: 0 !important;
+	}
+
+	.full-height{
+		min-height: 100%;
+	}
+
+	.admin{
+		background: color($colors, red);
+		color: color($colors, white);
+		text-align: center;
+	    margin: 0;
+	    border-radius: 0 0 5px 5px;
+	    text-transform: lowercase;
+	    font-size: 13px;
+	    padding: 2px 0;
+	}
+
+	.wrapper{
+	    background: #ffffff;
+	    margin: 10px;
+	    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	    border-radius: 5px;
+	    padding-bottom: 10px;
+	}
+	.q-title{
+		display: flex;
+	    justify-content: space-between;
+	}
+	.fw{
+		width: 100%;
+	}
+	.rotate{
+		transform: rotate(180deg);
+	}
+
+	.details{
+		color: #555;
+	}
+	.details p {
+	    margin-top: 0;
+	}
+
+	.like-buttons{
+	    background: #f2f2f2;
+	    color: #777;
+	    padding: 7px 5px 4px;
+	    border-radius: 5px 0 0;
+	    display: inline-flex;
+	    justify-content: space-between;
+	    align-items: center;
+	}
+	.like-buttons.has_next{
+		border-radius: 0;
+	}
+
+	.like-buttons .vote_icon_wrap{
+		padding: 0 8px;
+	}
+	.like-buttons .vote_down{
+		border-right: 1px solid #DADBDF;
+	}
+
+	.like-buttons-text{
+		text-align: center;
+		padding: 0 10px;
+	}
+	.like-buttons-num{
+		font-size: 18px;
+	    font-weight: bold;
+	    color: color($colors, red);
+	}
+	.like-buttons-num-text{
+		font-size: 12px;
+	}
+	.like-buttons-icons{
+		border-left: 1px solid #DADBDF;
+		font-size: 16px;
+		text-align: center;
+		padding-left: 10px;
+		display: flex;
+		align-items: center;
+	}
+	.like-buttons-icons ion-icon{
+		display: block;
+		font-size: 16px !important;
+		color: #777 !important;
+		padding: 0 !important;
+	}
+	.like-buttons-icons ion-icon.first{
+		// margin-bottom: 5px;
+	}
+
+	.actions{
+		// border-top: 1px solid #DADBDF;
+		border-bottom: 1px solid #DADBDF;
+	}
+
+	.actions .icon{
+		padding: 5px 10px 2px;
+		font-size: 20px;
+		display: inline-block;
+		color: color($colors, green);
+	}
+	.actions .icon.b-l{
+		border-left: 1px solid #DADBDF;
+	}
+	.actions .icon.b-r{
+		border-right: 1px solid #DADBDF;
+	}
+
+	.thegrid{
+		background: #e8e8e8;
+		border-bottom: 1px solid #c3c3c3;
+		height: 44px;
+	}
+	.thegrid .horizontal-scroll{
+		height: 44px;
+	}
+	.bg-grid, .bg-grid .item{
+		background: #f3f3f3 !important;
+	}
+
+	.b-colored{
+		border-color: #c3c3c3;
+	}
+	.sect-item{
+		background: #e8e8e8;
+		// padding: 10px 20px;
+		border-left: 1px solid #c3c3c3;
+		border-bottom: 1px solid #c3c3c3;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		// flex-direction: row;
+		height: 44px;
+		line-height: 22px;
+		min-width: 130px;
+	}
+	.sect-item.active{
+		background: #f0f0f0;
+		border-bottom: 1px solid #f3f3f3;
+	}
+	.thegrid .sect-item:last-child{
+		border-left: 0;
+	}
+
+	.sect-item ion-icon{
+		font-size: 20px;
+	}
+
+	.related{
+		background: #e8e8e8;
+	}
+
+	.related h3{
+		font-size: 1.8rem;
+	}
+
+	.related ion-chip{
+		border-radius: 5px;
+		background: color($colors, white);
+		color: color($colors, red);
+		box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	}
+
+	.related ion-chip ion-icon{
+		font-size: 12px;
+    	line-height: 20px;
+    	border-radius: 0;
+    	transform: rotate(180deg);
+	}
+
+	.b-t-comments{
+		border-top: 0.55px solid #c3c3c3;
+	}
+
+	.grid p{
+		margin-top: 6px;
+	}
+}

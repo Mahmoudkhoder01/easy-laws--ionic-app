@@ -1,0 +1,68 @@
+#######################
+## ANDROID ##
+#######################
+PLATFORM/ANDROID/BUILD/OUTPUTS/APK
+
+ionic cordova build android --prod --release
+ionic cordova build ios --prod
+
+// USE my-release-key.jks file (@biTvo13od)
+keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias androidalias
+
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.jks android-release-unsigned.apk androidalias
+
+~/Library/Android/sdk/build-tools/25.0.3/zipalign -v 4 android-release-unsigned.apk 1.0.93.apk
+
+~/Library/Android/sdk/build-tools/25.0.3/apksigner verify 1.0.93.apk
+
+
+#######################
+## ANDROID FINGERPRINT ## used for googleplus login
+#######################
+
+keytool -genkey -v -keystore my-release-key.keystore -alias androidalias -keyalg RSA -keysize 2048 -validity 10000
+
+keytool -exportcert -list -v \
+-alias androidalias -keystore my-release-key.keystore
+
+
+com.googleusercontent.apps.282686342243-rnq8m1nap4po0uqau26giij9c3onta02
+
+#######################
+## FACEBOOK ##
+#######################
+
+keytool -exportcert -alias androidalias -keystore my-release-key.jks -list -v
+
+keytool -list -v -keystore my-release-key.jks -alias androidalias
+
+You just need to convert SHA1 hex to be base64 characters.
+
+http://tomeko.net/online_tools/hex_to_base64.php
+
+SHA1: AC:34:F6:23:39:61:7A:7B:FF:7B:39:91:08:3D:42:04:C5:D7:23:33
+rDT2Izlhenv/ezmRCD1CBMXXIzM=
+
+
+
+MD5:  C1:34:A3:14:1B:80:17:21:67:49:C9:F9:30:56:4A:08
+SHA1: AC:34:F6:23:39:61:7A:7B:FF:7B:39:91:08:3D:42:04:C5:D7:23:33
+SHA256: 78:A7:ED:FD:31:28:33:21:D3:88:F6:28:40:2F:23:66:69:F8:36:3B:BD:AF:70:1E:9F:04:3F:72:0E:CD:D3:02
+Signature algorithm name: SHA256withRSA
+Version: 3
+
+
+Your microphone will be used Only to receive your Voice Notes.
+XCODE -> Resources -> Easy Laws-Info.plist
+OR
+platforms/ios/Easy Laws/Easy Laws-Info.plist (NSMicrophoneUsageDescription)
+
+Your microphone will be used Only to receive your Voice Notes.
+Easy Laws requires access to your camera.
+Easy Laws requires access to your photo library.
+
+
+AndroidManifest.xml
+add to first <manifest tag
+android:installLocation="auto"

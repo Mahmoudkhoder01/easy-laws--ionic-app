@@ -1,0 +1,39 @@
+<ion-header>
+	<ion-toolbar color="black">
+		<ion-title>{{title}}</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only color="white" (click)="close()">
+				<ion-icon name="close"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+	<div class="fullscreen-player" *ngIf="type=='video'">
+  		<video controls="controls" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" class="centerme" [src]="videoSrc"></video>
+  	</div>
+
+  	<div class="full" *ngIf="type=='image'" dir="ltr">
+		<ion-slides pager [initialSlide]="initialSlide">
+	        <ion-slide
+	        	*ngFor="let slide of slides"
+	        	[style.background]="'url('+slide+')'"
+	        	touch-events
+	        	(doubletap)="zoom(slide)"
+	        ></ion-slide>
+	    </ion-slides>
+	</div>
+
+	<div class="full" *ngIf="type=='pdf'">
+		<pdf-viewer
+			[src]="pdfSrc"
+            page="1"
+            [original-size]="false"
+            [show-all]="true"
+            style="display: block;"
+  		></pdf-viewer>
+	</div>
+
+</ion-content>

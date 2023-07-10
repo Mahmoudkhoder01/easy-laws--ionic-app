@@ -1,0 +1,19 @@
+login-view {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+
+    background: #50C2A6;
+    background: linear-gradient(to right, color($colors, app) 10%, color($colors, alt) 100%) !important;
+    color: #fff;
+
+    .container {
+
+        ion-icon {
+            font-size: 64px;
+        }
+    }
+}

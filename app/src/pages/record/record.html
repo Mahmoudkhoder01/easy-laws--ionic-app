@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar color="header">
+        <ion-title>{{'REQUEST_SUBJECT' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <login-view *ngIf="!user.is_loggedin"></login-view>
+    <empty-view *ngIf="!can_record" text="{{'CANNOT_RECORD' | translate}}"></empty-view>
+    <div *ngIf="user.is_loggedin && can_record">
+        <div class="shader">
+            <ion-list inset class="m-n">
+                <ion-item>
+                    <ion-textarea autosize [(ngModel)]="item.details" (input)="check()" placeholder="{{'WRITE_REQUEST' | translate}}"></ion-textarea>
+                </ion-item>
+                <button ion-item block color="alt" [ngClass]="{'animate-blink': is_recording}" (click)="onRecord($event)" icon-left><ion-icon name="mic"></ion-icon> {{text}}</button>
+            </ion-list>
+        </div>
+
+
+        <div margin class="track" *ngIf="finished">
+        	<ion-grid><ion-row align-items-center>
+        		<ion-col col-2 text-center>
+        			<ion-icon tappable [name]="track_icon" class="arabic_rotate" (click)="play()"></ion-icon>
+        		</ion-col>
+        		<ion-col>
+        			<div class="progress-outer">
+        				<div class="progress-inner" [style.width]="progress + '%'"></div>
+    				</div>
+    				<ion-note>{{duration}}</ion-note>
+        		</ion-col>
+                <ion-col col-1 text-center>
+                    <ion-icon name="close-circle" (click)="rem()"></ion-icon>
+                </ion-col>
+        	</ion-row></ion-grid>
+        </div>
+
+        <div padding class="text-center">
+            <button (click)="save()" ion-button outline color="app" class="bold" [disabled]="disabled">{{'SEND' | translate}}</button>
+        </div>
+
+        <div class="p text-sm italic">{{'RECORD_NOTE' | translate}}</div>
+    </div>
+
+</ion-content>

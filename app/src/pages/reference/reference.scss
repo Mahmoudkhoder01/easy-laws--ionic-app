@@ -1,0 +1,13 @@
+page-reference {
+	ion-content{
+		background: #f0f3f4 !important;
+	}
+	.toolbar-title {
+		display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
+	.toolbar-title ion-icon{
+		margin: 0 5px;
+	}
+}

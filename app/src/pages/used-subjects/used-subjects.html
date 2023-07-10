@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-navbar color="header">
+        <ion-title>{{'YOUR_SEARCHES' | translate}}</ion-title>
+    </ion-navbar>
+    <ion-toolbar color="header">
+        <ion-segment [(ngModel)]="segment" (ionChange)="segment_load()">
+            <ion-segment-button value="subjects">{{'SUBJECTS' | translate}}</ion-segment-button>
+            <ion-segment-button value="searches">{{'KEYWORDS' | translate}}</ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <login-view *ngIf="!user.is_loggedin"></login-view>
+
+    <ion-refresher (ionRefresh)="onRefresh($event)">
+    	<ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-list *ngIf="user.is_loggedin && segment=='searches'">
+    	<ion-list-header></ion-list-header>
+        <button ion-item icon-left *ngFor="let h of user.search_history" (click)="onSearch(h)">
+            <ion-icon name="search"></ion-icon>
+            {{h}}
+        </button>
+    </ion-list>
+
+    <ion-list *ngIf="user.is_loggedin && segment=='subjects'">
+        <ion-list-header></ion-list-header>
+        <button ion-item icon-left small *ngFor="let item of items" (click)="onSubject(item)">
+            <ion-icon name="star-outline"></ion-icon>
+            {{item.title}}
+        </button>
+    </ion-list>
+
+    <ion-infinite-scroll (ionInfinite)="onInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+</ion-content>

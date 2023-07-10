@@ -1,0 +1,29 @@
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /__APPS/easylaws/site/
+RewriteRule ^index\.php$ - [L]
+RewriteRule ^main-sitemap.xsl /__APPS/easylaws/site/wp-content/plugins/bw-app-easylaws/frontend/sitemap/template.php [QSA,L]
+RewriteRule ^sitemap.xml /__APPS/easylaws/site/wp-content/plugins/bw-app-easylaws/frontend/sitemap/index.php [QSA,L]
+RewriteRule ^questions-sitemap.xml /__APPS/easylaws/site/wp-content/plugins/bw-app-easylaws/frontend/sitemap/questions.php [QSA,L]
+RewriteRule ^subjects-sitemap.xml /__APPS/easylaws/site/wp-content/plugins/bw-app-easylaws/frontend/sitemap/subjects.php [QSA,L]
+RewriteRule ^pages-sitemap.xml /__APPS/easylaws/site/wp-content/plugins/bw-app-easylaws/frontend/sitemap/pages.php [QSA,L]
+RewriteRule ^sys-login/(.*) /__APPS/easylaws/site/wp-login\.php$ [QSA,L]
+RewriteRule ^sys-register/(.*) /__APPS/easylaws/site/wp-login\.php?action=register$ [QSA,L]
+RewriteRule ^dashboard/(.*) /__APPS/easylaws/site/wp-admin/$1 [QSA,L]
+RewriteRule ^lib/(.*) /__APPS/easylaws/site/wp-includes/$1 [QSA,L]
+RewriteRule ^sys/(.*) /__APPS/easylaws/site/wp-content/$1 [QSA,L]
+RewriteRule ^ajax /__APPS/easylaws/site/wp-admin/admin-ajax.php [QSA,L]
+RewriteRule ^api/(.*) /__APPS/easylaws/site/wp-content/plugins/bw-app-easylaws/classes/root/api/index.php$1 [QSA,L]
+RewriteRule ^json/.* /__APPS/easylaws/site/wp-content/plugins/bw-app-easylaws/json/index.php$1 [QSA,L]
+RewriteRule ^activate/(.*) /__APPS/easylaws/site/wp-content/plugins/bw-app-easylaws/classes/root/activate/index.php$1 [QSA,L]
+RewriteRule ^cron/daily/(.*) /__APPS/easylaws/site/wp-content/plugins/bw-app-easylaws/classes/root/cron/daily.php$1 [QSA,L]
+RewriteRule ^cron/worker/(.*) /__APPS/easylaws/site/wp-content/plugins/bw-app-easylaws/classes/root/cron/worker.php$1 [QSA,L]
+RewriteRule ^adout/(.*) /__APPS/easylaws/site/wp-content/plugins/bw-app-easylaws/classes/root/adout/index.php?id=$1 [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /__APPS/easylaws/site/index.php [L]
+</IfModule>
+
+# END WordPress

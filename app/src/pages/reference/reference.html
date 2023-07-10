@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-toolbar color="header">
+        <ion-title>
+            <ion-icon name="app-icon-references-white"></ion-icon>
+            {{'REFERENCES' | translate}}
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="close()">
+                <ion-icon name="app-icon-close"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content dir="rtl" [class]="font_class">
+    <!-- <ion-icon name="close-circle" class="close-button" color="alt" (click)="close()"></ion-icon> -->
+
+    <ion-slides *ngIf="!loaded"><ion-slide><p>{{'LOADING' | translate}}</p></ion-slide></ion-slides>
+    <div *ngIf="loaded">
+        <div class="p m-b b-b">
+            <p class="bold" *ngIf="item.parent">{{item.parent}}</p>
+            <p class="bold">{{item.title}}</p>
+            <div class="user-select" [innerHtml]="item.details | html"></div>
+        </div>
+    </div>
+</ion-content>
+<!-- <ion-footer><ion-toolbar empty></ion-toolbar></ion-footer> -->

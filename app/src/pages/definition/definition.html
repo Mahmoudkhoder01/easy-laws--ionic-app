@@ -1,0 +1,72 @@
+<ion-header>
+    <ion-toolbar color="header">
+        <ion-title>{{'DEFINITION' | translate}}</ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="close()">
+                <ion-icon name="app-icon-close"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content dir="rtl" [class]="font_class">
+    <!-- <ion-icon name="close-circle" class="close-button" color="alt" (click)="close()"></ion-icon> -->
+    <ion-slides *ngIf="!loaded"><ion-slide><p>{{'LOADING' | translate}}</p></ion-slide></ion-slides>
+    <div *ngIf="loaded">
+        <div class="p b-b">
+            <p class="bold m-t-n" [innerHtml]="title"></p>
+            <div class="user-select" [innerHtml]="item.details | html"></div>
+        </div>
+
+        <div #thegrid class="thegrid" *ngIf="item.notes.length || item.examples.length">
+            <div class="horizontal-scroll text-center">
+                <span *ngIf="item.notes.length" tappable class="sect-item" [class.active]="sect=='notes'" (click)="do_sect('notes')">
+                    <ion-icon name="app-icon-note"></ion-icon>
+                    <span>{{'NOTES' | translate}}</span>
+                </span>
+                <span *ngIf="item.examples.length" tappable class="sect-item" [class.active]="sect=='examples'" (click)="do_sect('examples')">
+                    <ion-icon name="app-icon-examples"></ion-icon>
+                    <span>{{'EXAMPLES' | translate}}</span>
+                </span>
+            </div>
+        </div>
+
+        <div *ngIf="sect == 'notes' && item.notes.length">
+            <div class="bg-grid p p-y-xs b-b user-select">
+                <ion-grid>
+                <ion-row *ngFor="let note of item.notes; let isLast=last; let i=index" class="b-colored" [class.b-b]="!isLast">
+                    <ion-col col-1 *ngIf="item.notes.length>1"><ion-badge class="badge-mini m-t-sm" color="white">{{i+1}}</ion-badge></ion-col>
+                    <ion-col><div [innerHtml]="note"></div></ion-col>
+                </ion-row>
+                </ion-grid>
+            </div>
+        </div>
+
+        <div *ngIf="sect == 'examples' && item.examples.length">
+            <div class="bg-grid p p-y-xs b-b user-select">
+                <ion-grid>
+                <ion-row *ngFor="let ex of item.examples; let isLast=last; let i=index" class="b-colored" [class.b-b]="!isLast">
+                    <ion-col col-1 *ngIf="item.examples.length>1"><ion-badge class="badge-mini m-t-sm" color="white">{{i+1}}</ion-badge></ion-col>
+                    <ion-col><div [innerHtml]="ex"></div></ion-col>
+                </ion-row>
+                </ion-grid>
+            </div>
+        </div>
+
+        <div *ngIf="item.tags.length">
+            <div class="related p rlt m-t-xs">
+                <h3 class="m-t-n">{{'RELATED_SUBJECTS' | translate}}</h3>
+                <div class="horizontal-scroll">
+                    <ion-chip *ngFor="let tag of item.tags; let i = index" color="alt" class="m-l-sm" (click)="nav_by_tag(tag)">
+                        <ion-label *ngIf="i<3">
+                            <ion-icon name="app-icon-arrow-red"></ion-icon>
+                            {{tag.title}}
+                        </ion-label>
+                    </ion-chip>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</ion-content>
+<!-- <ion-footer><ion-toolbar empty></ion-toolbar></ion-footer> -->
