@@ -130,7 +130,7 @@ export class QuestionsPage extends Base {
             console.log(item)
             this.goto("SubjectsPage", {
                 item: item,
-                // ID: item.data.ID
+                // ID: item.data.ID 
             });
         } else {
             this.goto("QuestionsPage", {

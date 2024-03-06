@@ -1,20 +1,29 @@
 <ion-header>
     <ion-navbar color="header">
         <!-- <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button> -->
-        <ion-title>
-            {{'SUBJECTS' | translate}}
-        </ion-title>
+        <ion-title> {{'SUBJECTS' | translate}} </ion-title>
     </ion-navbar>
 </ion-header>
 <ion-content>
     <app-loader *ngIf="__loading"></app-loader>
     <ion-list *ngIf="!__loading">
         <ion-list-header>{{breadcrumb}}</ion-list-header>
-        <button ion-item icon-left *ngFor="let item of subjects" (click)="go_to(item)" ngClass="__ITEM_{{item.data.ID}}">
+        <button
+            ion-item
+            icon-left
+            *ngFor="let item of subjects"
+            (click)="go_to(item)"
+            ngClass="__ITEM_{{item.data.ID}}"
+        >
             <ion-avatar item-start *ngIf="item.data.image">
-                <img [src]="item.data.image ? item.data.image : '../assets/img/icon.png'">
+                <img
+                    [src]="item.data.image ? item.data.image : '../assets/img/icon.png'"
+                />
             </ion-avatar>
-            <ion-icon *ngIf="!item.data.image" name="app-icon-subjects"></ion-icon>
+            <ion-icon
+                *ngIf="!item.data.image"
+                name="app-icon-subjects"
+            ></ion-icon>
             {{item.data.title}}
             <!-- <ion-badge color="alt" item-end *ngIf="!item.children.length">{{item.data.posts_count}}</ion-badge> -->
         </button>

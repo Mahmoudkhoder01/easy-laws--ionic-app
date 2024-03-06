@@ -68,7 +68,7 @@ export class UsedSubjectsPage extends Base {
     onInfinite(event){
         if(this.user.is_loggedin){
             if(this.page < this.total_pages){
-                this.api.post('get_likes').subscribe(data => {
+                this.api.p  ost('get_likes').subscribe(data => {
                     for(let i=0; i < data.results.length; i++){
                         this.items.push(data.results[i]);
                     }

@@ -8,6 +8,7 @@ import { IonicPage } from 'ionic-angular';
     selector: 'page-sign-up',
     templateUrl: 'sign-up.html'
 })
+
 export class SignUpPage extends Base {
     trans: any;
     trans_keys = ['ARE_YOU_SURE'];

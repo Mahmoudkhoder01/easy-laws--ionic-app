@@ -49,7 +49,7 @@ export class Api {
         return this.http.get(url, options).timeout(this.timeout).map(res => res.json()).publishReplay(1).refCount();
     }
 
-    post(action: string = '', req: any = {}, timeOut = this.timeout): Observable<any> {
+        post(action: string = '', req: any = {}, timeOut = this.timeout): Observable<any> {
         const body = new URLSearchParams();
         body.set('action', action);
         body.set('__ref', '__fromapp');

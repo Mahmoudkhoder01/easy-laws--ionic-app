@@ -1,11 +1,17 @@
-<ion-header><ion-navbar transparent>
-    <ion-title color="white">{{item.name}}</ion-title>
-</ion-navbar></ion-header>
+<ion-header
+    ><ion-navbar transparent>
+        <ion-title color="white">{{item.name}}</ion-title>
+    </ion-navbar></ion-header
+>
 
 <ion-content class="bg-app">
     <div class="sect-header">
         <!-- <p>{{item.name}}</p> -->
-        <app-avatar [text]="item.name" [image]="item.image" (click)="on_capture()"></app-avatar>
+        <app-avatar
+            [text]="item.name"
+            [image]="item.image"
+            (click)="on_capture()"
+        ></app-avatar>
         <p (click)="on_capture()">{{'CHANGE_IMG' | translate}}</p>
         <!-- <button ion-button round outline small color="white" class="left" [class.active]="sect=='edit'" (click)="sect='edit'">
             {{'EDIT' | translate}}
@@ -20,11 +26,19 @@
             <ion-list inset class="m-b-n">
                 <ion-item>
                     <ion-label fixed>{{'DISPLAY_NAME' | translate}}</ion-label>
-                    <ion-input type="text" [(ngModel)]="item.name" (input)="check()"></ion-input>
+                    <ion-input
+                        type="text"
+                        [(ngModel)]="item.name"
+                        (input)="check()"
+                    ></ion-input>
                 </ion-item>
                 <ion-item>
                     <ion-label fixed>{{'PHONE' | translate}}</ion-label>
-                    <ion-input type="text" [(ngModel)]="item.phone" (input)="check()"></ion-input>
+                    <ion-input
+                        type="text"
+                        [(ngModel)]="item.phone"
+                        (input)="check()"
+                    ></ion-input>
                 </ion-item>
                 <ion-item>
                     <ion-label fixed>{{'DOB' | translate}}</ion-label>
@@ -33,55 +47,112 @@
                         doneText="{{'DONE' | translate}}"
                         cancelText="{{'CANCEL' | translate}}"
                         monthNames="{{'MONTH_NAMES' | translate}}"
-                        [(ngModel)]="item.dob">
+                        [(ngModel)]="item.dob"
+                    >
                     </ion-datetime>
                 </ion-item>
                 <ion-item>
                     <ion-label>{{'GENDER' | translate}}</ion-label>
-                    <ion-select interface="action-sheet" cancelText="{{'CANCEL' | translate}}" [(ngModel)]="item.gender">
+                    <ion-select
+                        interface="action-sheet"
+                        cancelText="{{'CANCEL' | translate}}"
+                        [(ngModel)]="item.gender"
+                    >
                         <ion-option value="">---</ion-option>
-                        <ion-option value="male">{{'MALE' | translate}}</ion-option>
-                        <ion-option value="female">{{'FEMALE' | translate}}</ion-option>
+                        <ion-option value="male"
+                            >{{'MALE' | translate}}</ion-option
+                        >
+                        <ion-option value="female"
+                            >{{'FEMALE' | translate}}</ion-option
+                        >
                     </ion-select>
                 </ion-item>
             </ion-list>
 
-            <ion-grid no-padding class="p-x p-t-sm"><ion-row>
-                <ion-col>
-                    <button ion-button clear color="white" class="p-n m-n" (click)="sect='pwd'">
-                        <ion-icon name=""></ion-icon>
-                        {{'CHANGE_PWD' | translate}}
-                    </button>
-                    <button ion-button clear color="white" class="p-n m-n" (click)="sect='email'">
-                        {{'CHANGE_EMAIL' | translate}}
-                    </button>
+            <ion-grid no-padding class="p-x p-t-sm"
+                ><ion-row>
+                    <ion-col>
+                        <button
+                            ion-button
+                            clear
+                            color="white"
+                            class="p-n m-n"
+                            (click)="sect='pwd'"
+                        >
+                            <ion-icon name=""></ion-icon>
+                            {{'CHANGE_PWD' | translate}}
+                        </button>
+                        <button
+                            ion-button
+                            clear
+                            color="white"
+                            class="p-n m-n"
+                            (click)="sect='email'"
+                        >
+                            {{'CHANGE_EMAIL' | translate}}
+                        </button>
 
-                    <button ion-button clear color="white" class="p-n m-n" (click)="on_logout()">
-                        {{'LOGOUT' | translate}}
-                    </button>
-                </ion-col>
-                <ion-col class="save-button">
-                    <button ion-button outline color="white" class="bold" (click)="change()" [disabled]="disabled">
-                        {{'SAVE' | translate}}
-                    </button>
-                </ion-col>
-            </ion-row></ion-grid>
-
+                        <button
+                            ion-button
+                            clear
+                            color="white"
+                            class="p-n m-n"
+                            (click)="on_logout()"
+                        >
+                            {{'LOGOUT' | translate}}
+                        </button>
+                    </ion-col>
+                    <ion-col class="save-button">
+                        <button
+                            ion-button
+                            outline
+                            color="white"
+                            class="bold"
+                            (click)="change()"
+                            [disabled]="disabled"
+                        >
+                            {{'SAVE' | translate}}
+                        </button>
+                    </ion-col>
+                </ion-row></ion-grid
+            >
         </div>
 
         <div padding class="sect-pwd" *ngIf="sect=='pwd'">
             <ion-list inset>
                 <ion-item>
-                    <ion-label stacked>{{'PASSWORD_NEW' | translate}}</ion-label>
-                    <ion-input class="ltr-input" type="password" [(ngModel)]="password_new" (input)="check_pwd()"></ion-input>
+                    <ion-label stacked
+                        >{{'PASSWORD_NEW' | translate}}</ion-label
+                    >
+                    <ion-input
+                        class="ltr-input"
+                        type="password"
+                        [(ngModel)]="password_new"
+                        (input)="check_pwd()"
+                    ></ion-input>
                 </ion-item>
 
                 <ion-item>
-                    <ion-label stacked>{{'PASSWORD_AGAIN' | translate}}</ion-label>
-                    <ion-input class="ltr-input" type="password" [(ngModel)]="password_new_again" (input)="check_pwd()"></ion-input>
+                    <ion-label stacked
+                        >{{'PASSWORD_AGAIN' | translate}}</ion-label
+                    >
+                    <ion-input
+                        class="ltr-input"
+                        type="password"
+                        [(ngModel)]="password_new_again"
+                        (input)="check_pwd()"
+                    ></ion-input>
                 </ion-item>
 
-                <button ion-item block detail-none color="alt" (click)="change_pwd()" [disabled]="disabled_pwd" class="text-center p-n">
+                <button
+                    ion-item
+                    block
+                    detail-none
+                    color="alt"
+                    (click)="change_pwd()"
+                    [disabled]="disabled_pwd"
+                    class="text-center p-n"
+                >
                     {{'SAVE' | translate}}
                 </button>
             </ion-list>
@@ -94,15 +165,33 @@
             <ion-list inset>
                 <ion-item>
                     <ion-label stacked>{{'EMAIL' | translate}}</ion-label>
-                    <ion-input class="ltr-input" type="email" [(ngModel)]="email_new" (input)="check_email()"></ion-input>
+                    <ion-input
+                        class="ltr-input"
+                        type="email"
+                        [(ngModel)]="email_new"
+                        (input)="check_email()"
+                    ></ion-input>
                 </ion-item>
 
                 <ion-item>
                     <ion-label stacked>{{'PASSWORD' | translate}}</ion-label>
-                    <ion-input class="ltr-input" type="password" [(ngModel)]="email_new_password" (input)="check_email()"></ion-input>
+                    <ion-input
+                        class="ltr-input"
+                        type="password"
+                        [(ngModel)]="email_new_password"
+                        (input)="check_email()"
+                    ></ion-input>
                 </ion-item>
 
-                <button ion-item block detail-none color="alt" (click)="change_email()" [disabled]="disabled_email" class="text-center p-n">
+                <button
+                    ion-item
+                    block
+                    detail-none
+                    color="alt"
+                    (click)="change_email()"
+                    [disabled]="disabled_email"
+                    class="text-center p-n"
+                >
                     {{'SAVE' | translate}}
                 </button>
             </ion-list>

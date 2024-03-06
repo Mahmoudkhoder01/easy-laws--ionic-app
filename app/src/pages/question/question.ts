@@ -141,7 +141,7 @@ export class QuestionPage extends Base {
         let index = this.all_items.indexOf(this.item);
         this.goto("QuestionPage", {item: this.all_items[index-1], all_items: this.all_items}, {animate: true, direction: 'back', easing: 'easeOutExpo', duration: 500});
     }
-
+3
     swipeNext(){
         this.platform.isRTL ? this.prev() : this.next();
     }
